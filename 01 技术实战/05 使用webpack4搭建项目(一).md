@@ -12,8 +12,9 @@
 
 在项目根目录下创建两个文件夹 src 和 dist，然后在 src 下创建 index.html,main.js文件
 
-![](https://i.imgur.com/mRxouAi.png)
-![](https://i.imgur.com/MMUqxsk.png)
+![](https://camo.githubusercontent.com/84865706eaec780cfd0eb778bd18c85eb9b4a752/68747470733a2f2f692e696d6775722e636f6d2f6d52786f7541692e706e67)
+
+![](https://camo.githubusercontent.com/50518636a84237af096f15903a31fb6e7bad4ecc/68747470733a2f2f692e696d6775722e636f6d2f4d4d557178736b2e706e67)
 
 ## 二、安装
 
