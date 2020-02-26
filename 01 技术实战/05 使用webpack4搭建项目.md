@@ -1,5 +1,5 @@
 # webpack4的入门
-## 开始
+## 一、开始
 打开命令行工具,新建一个文件,进入该文件--初始化 package.json
 
 	mkdir webpack-demo
@@ -14,6 +14,8 @@
 
 ![](https://i.imgur.com/mRxouAi.png)
 ![](https://i.imgur.com/MMUqxsk.png)
+
+## 二、安装
 
 接着在webpack-demo文件下安装webpack
 
@@ -30,6 +32,7 @@
 ### 解决方法一：
 
 > Node 8.2+ 版本提供的 npx 命令，可以运行在初始安装的 webpack 包(package)的 webpack 二进制文件（./node_modules/.bin/webpack），所以使用 npx webpack -v 就可以查看版本了，出现版本号也说明webpack安装成功了。
+
 ![](https://i.imgur.com/y8JXPkI.png)
 
 ### 解决方法二：
@@ -44,7 +47,9 @@
 > 
 ### 注意：此时直接运行 webpack 命令还是不行的，只能用 npm run dev。这是因为局部安装的webpack并不会在系统环境变量里面注册，所以在控制台里输入webpack找不到命令；npm run dev 系统可以找到注册在系统中的npm,自然可以运行。可能全局安装webpack也是一种解决方法（我不想全局安装，所以没有试）。
 
-在浏览器中打开index.html,成功的话会看到 hello webpack，不过此时控制台会有警告出现。
+## 三、配置mode和入口、出口文件
+
+运行 npx webpack 打包命令后，控制台会有警告出现
 
 ![](https://raw.githubusercontent.com/limchen233/images/master/webpack4_images/5.png)
 
@@ -69,3 +74,10 @@
 ### 默认打包入口文件：src/index.js
 
 ### 默认打包输出文件：dist/main.js
+
+在 index.html 中手动引入打包后的文件，控制台就可以输出ok了。
+
+![](https://i.imgur.com/powbIAf.png)
+![](https://i.imgur.com/jlvwSJZ.png)
+
+## 四、实现自动打包
