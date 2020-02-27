@@ -4,3 +4,10 @@
 
 	npm i webpack-dev-server -D
 
+安装成功后需要配置。打开 package.json 文件，在 scripts 添加 "dev":"webpack-dev-server",如图:
+
+![](https://i.imgur.com/HkY0sPq.png)
+
+然后在控制台运行 npm run dev,打包成功，如图：
+
+![](https://i.imgur.com/I9SY0NN.png)
