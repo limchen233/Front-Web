@@ -19,3 +19,19 @@
 这是因为 webpack-dev-server 将打包后生成的main.js文件托管到了内存中（我们可以认为在项目根目录下有个main.js），而不是项目根目录下的dist文件夹内，而我们在 index.html 中引入的是项目根目录下的 dist/main.js,所以页面数据不会更新。要想实时更新要重新引入 /main.js,如图：
 
 ![](https://i.imgur.com/C2KMqpK.png)
+
+配置dev-server
+
+> --open 自动打开页面（默认浏览器，也可以指定浏览器）
+> 
+> --hot 热更新（实时刷新页面）
+> 
+> --port 3000 指定端口
+
+> --host 127.0.0.1 指定主机域名
+
+> --progress 打包记录
+
+> --compress 压缩记录
+
+![](https://i.imgur.com/0fBiiWN.png)
