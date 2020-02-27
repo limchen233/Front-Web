@@ -34,4 +34,6 @@
 
 > --compress 压缩记录
 
+> --contentBase src 指定托管的根目录
+
 ![](https://i.imgur.com/0fBiiWN.png)
