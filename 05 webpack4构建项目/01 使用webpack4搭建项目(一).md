@@ -79,6 +79,5 @@
 在 index.html 中手动引入打包后的文件，控制台就可以输出ok了。
 
 ![](https://i.imgur.com/powbIAf.png)
-![](https://i.imgur.com/jlvwSJZ.png)
 
-## 四、实现自动打包
+![](https://i.imgur.com/jlvwSJZ.png)
