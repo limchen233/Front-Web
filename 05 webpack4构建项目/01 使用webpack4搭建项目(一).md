@@ -66,7 +66,7 @@
 
 提示找不到入口文件
 
-之前在 webpack3 中我们是在 webpack.config.js 中配置了一个入口文件。webpack4中有一个很大的特性，就是约定大于配置。它约定的默认入口文件是src下的index.js,所以我们在这里不用配置（也可以选择配置，会把默认的覆盖），直接把项目src目录下的main.js改为index.js就可以了。然后运行 npx webpack
+之前在 webpack3 中我们是在 webpack.config.js 中配置了一个入口文件。webpack4中有一个很大的特性，就是约定大于配置（目的是压缩体积）。它约定的默认入口文件是src下的index.js,所以我们在这里不用配置（也可以选择配置，会把默认的覆盖），直接把项目src目录下的main.js改为index.js就可以了。然后运行 npx webpack
 
 ![](https://i.imgur.com/2wOCUsf.png)
 
