@@ -14,5 +14,5 @@
 	<div id="app"></div>
 
 ### 3、导入包：
-	import React from ‘react’
-	import ReactDom from ‘react-dom’
+	import React from 'react'
+	import ReactDom from 'react-dom'
