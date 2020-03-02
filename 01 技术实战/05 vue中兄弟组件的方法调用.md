@@ -12,11 +12,11 @@
 子组件 childA，A里有一个方法
 
 	<script>
-	   methods:{
-	      testA(){
-		     console.log('我是childA里的方法')
-		  }
-	   }
+		methods:{
+	        testA(){
+		        console.log('我是childA里的方法')
+		    }
+	    }
 	</script>
 
 子组件 childA，B里有一个方法	
