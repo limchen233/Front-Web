@@ -16,3 +16,9 @@
 ### 3、导入包：
 	import React from 'react'
 	import ReactDom from 'react-dom'
+
+**注：这两个包导入的时候，必须这么写。否则会报错。**
+
+在 index.html 中创建容器：
+
+	<div id="app"></div>
