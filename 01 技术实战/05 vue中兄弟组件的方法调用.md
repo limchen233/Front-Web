@@ -14,8 +14,8 @@
 	<script>
 	  methods:{
 	    testA(){
-		  console.log('我是childA里的方法')
-		}
+	      console.log('我是childA里的方法')
+	    }
 	  }
 	</script>
 
@@ -24,7 +24,7 @@
 	<script>
 	  methods:{
 	    testB(){
-		  console.log('我是childB里的方法')
-		  }
-	    }
+          console.log('我是childB里的方法')
+        }
+      }
 	</script>
