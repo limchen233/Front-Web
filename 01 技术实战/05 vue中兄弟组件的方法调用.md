@@ -5,8 +5,8 @@
 假设父组件 parent
 
 	<div>
-	   <childA></childA>
-	   <childB></childB>
+	    <childA></childA>
+	    <childB></childB>
 	</div>
 
 子组件 childA，A里有一个方法
