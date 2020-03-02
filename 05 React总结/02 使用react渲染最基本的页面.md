@@ -13,6 +13,8 @@
 	<!--容器，将来使用 React 创建的虚拟DOM元素，都会被渲染到这个指定的容器中 -->
 	<div id="app"></div>
 
+![](https://i.imgur.com/GAeeLKA.png)
+
 ### 3、导入包：
 	import React from 'react'
 	import ReactDom from 'react-dom'
@@ -21,7 +23,7 @@
 
 ### 4、创建虚拟DOM元素
 
-3个基本参数
+有三个基本参数
 
 > 参数1：创建的元素类型，字符串，表示元素的名称
 > 
@@ -35,8 +37,11 @@
 
 ### 5、使用ReactDom把虚拟DOM渲染到页面上
 
-  
+有两个基本参数
 
-在 index.html 中创建容器：
+参数1：要渲染的虚拟DOM元素
 
-	<div id="app"></div>
+参数2：指定页面上一个容器
+
+    ReactDom.render(myh1,document.getElementById('app'))
+
