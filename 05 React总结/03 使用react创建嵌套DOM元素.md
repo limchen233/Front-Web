@@ -28,6 +28,6 @@
 
 ![](https://i.imgur.com/Xp6agQq.png)
 
-![](https://i.imgur.com/kIRqmYG.png)
+运行 npm run dev 成功执行！
 
-成功执行！
+![](https://i.imgur.com/aSt83G2.png)
