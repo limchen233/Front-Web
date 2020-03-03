@@ -21,3 +21,7 @@ React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟�
 ![](https://i.imgur.com/p4lT22R.png)
 
 ## 三、JSX语法
+
+在JS中，混合写入类似于HTML的语法，叫做JSX语法；符合XML规范的JS。
+
+本质：在运行的时候，被转换成了 React.createElement 形式来执行。
