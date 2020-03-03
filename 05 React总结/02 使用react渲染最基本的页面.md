@@ -9,19 +9,13 @@
 > 
 > react-dom：专门进行Dom操作的，最主要的应用场景就是 ReactDom.render()
 
-### 2、在index.html页面中，创建容器：
-	<!--容器，将来使用 React 创建的虚拟DOM元素，都会被渲染到这个指定的容器中 -->
-	<div id="app"></div>
-
-![](https://i.imgur.com/GAeeLKA.png)
-
-### 3、导入包：
+### 2、导入包：
 	import React from 'react'
 	import ReactDom from 'react-dom'
 
 **注：这两个包导入的时候，必须这么写。否则会报错。**
 
-### 4、创建虚拟DOM元素
+### 3、创建虚拟DOM元素
 
 有三个基本参数
 
@@ -36,6 +30,12 @@
     const myh1 = React.createElement('h1',null,'这是h1标签') // <h1>这是h1标签</h1>    h1标签没有属性
 
     const myh1 = React.createElement('h1',{id:'h1',title:'this is h1'},'这是h1标签') // <h1 id="myh1" title="this is h1">这是h1标签</h1>    带属性的h1标签
+
+### 4、在index.html页面中，创建容器：
+	<!--容器，使用 React 创建的虚拟DOM元素，都会被渲染到这个指定的容器中 -->
+	<div id="app"></div>
+
+![](https://i.imgur.com/GAeeLKA.png)
 
 ### 5、使用ReactDom把虚拟DOM渲染到页面上
 
