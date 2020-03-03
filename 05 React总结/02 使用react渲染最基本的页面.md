@@ -3,7 +3,7 @@
 首先用webpack搭建起一个项目，搭建好后再进行如下操作。（可参考前面的webpack搭建过程）
 
 ### 1、安装包
-	npm i react react-dom -S
+	npm i react react-dom -S // -S是在开发和生产依赖中都会注入，因为 react 和 react-dom 开发、生产中都会用到
 
 > react：专门用于创建组件和虚拟Dom的，同时组件的生命周期都在这个包中
 > 
@@ -33,7 +33,9 @@
 
 > 参数n：其它子节点
 
-    const myh1 = React.createElement('h1',null,'这是h1标签')
+    const myh1 = React.createElement('h1',null,'这是h1标签') // <h1>这是h1标签</h1>    h1标签没有属性
+
+    const myh1 = React.createElement('h1',{id:'h1',title:'this is h1'},'这是h1标签') // <h1 id="myh1" title="this is h1">这是h1标签</h1>    带属性的h1标签
 
 ### 5、使用ReactDom把虚拟DOM渲染到页面上
 
@@ -41,7 +43,18 @@
 
 参数1：要渲染的虚拟DOM元素
 
-参数2：指定页面上一个容器
+参数2：指定页面上一个容器,注意是容器
 
     ReactDom.render(myh1,document.getElementById('app'))
 
+事例1：不带属性的h1标签
+
+![](https://i.imgur.com/bfEBNtO.png)
+
+![](https://i.imgur.com/lf8tHlR.png)
+
+事例2：带属性的h1标签
+
+![](https://i.imgur.com/znVYcg1.png)
+
+![](https://i.imgur.com/rtkSfVV.png)
