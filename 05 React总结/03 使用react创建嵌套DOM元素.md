@@ -20,4 +20,14 @@
 
 ![](https://i.imgur.com/d9txiIM.png)
 
-.babelrc是一个json格式的文件，里面配置我们刚才安装的babel相关包和插件
+.babelrc是一个json格式的文件，里面配置我们刚才安装的babel相关包和插件。
+
+如果运行项目报错的话（找不到babel/core），应该是需要安装 babel-loader@7
+
+现在就可以用JSX语法创建DOM了
+
+![](https://i.imgur.com/Xp6agQq.png)
+
+![](https://i.imgur.com/kIRqmYG.png)
+
+成功执行！
