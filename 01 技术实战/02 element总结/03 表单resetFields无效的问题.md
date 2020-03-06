@@ -9,7 +9,7 @@
 
 解决方法：
 
-所以我们要在 form 表单 mounted 之后再进行赋值操作这样就可以完美解决问题了，在点击编辑赋值的时候使用 "this.$nextTick" 方法即可，nextTick里面的代码会在DOM更新后执行。如图：
+所以我们要在 form 表单 mounted 之后再进行赋值操作这样就可以完美解决问题了，在点击编辑赋值的时候使用 "this.$nextTick" 方法即可，**nextTick里面的代码会在DOM更新后执行**。如图：
 
 ![](https://i.imgur.com/iK4UVvh.png)
 
