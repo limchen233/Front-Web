@@ -5,7 +5,7 @@
 **关于 resetFields() 方法：**
 > 1、此方法用于将form表单的数据设置为初始值
 > 
-  2、而这个初始值是在 form 的 mounted 生命周期被赋值上去的。所以，在 form 的 mounted 之前，如果给 form 表单赋值了，那么后面调用 resetFields()都是无效的，因为 form 表单的初始值已经在 mounted 之前就被赋值了。重置也只是回到 mounted 之前的初始值。
+> 2、而这个初始值是在 form 的 mounted 生命周期被赋值上去的。所以，在 form 的 mounted 之前，> 如果给 form 表单赋值了，那么后面调用 resetFields()都是无效的，因为 form 表单的初始值已经在 mounted 之前就被赋值了。重置也只是回到了 mounted 之前的初始值。
 
 解决方法：
 
@@ -13,12 +13,15 @@
 
 ![](https://i.imgur.com/iK4UVvh.png)
 
+
 这样就完美解决了！
 
 顺便说下 resetFields() 的使用：
 首先要在表单上绑定要清空的 form 数据和添加 ref，form 是个对象
 
 ![](https://i.imgur.com/C4uyCoS.png)
+
+![](https://i.imgur.com/GIM9nDf.png)
 
 然后在需要用到的地方调用：
 
