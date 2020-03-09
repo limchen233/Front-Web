@@ -2,7 +2,7 @@
 
 解决方法：
 
-先把'无' 当作一个默认选项，其它选项为另一组选项。然后利用数组的some()方法得出 disabled 是 true 还是 false
+先把'无' 当作一组默认选项，其它选项为另一组选项。然后利用数组的some()方法得出 disabled 是 true 还是 false
 
 ![](https://i.imgur.com/tyAumJr.png)
 
