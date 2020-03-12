@@ -6,7 +6,7 @@
 
 > class 关键字是 ES6 中实现面向对象的新形式
 
-> 每一个 class 中，都有一个构造器，如果我们没有手动指定构造器，可以认为类内部有个隐形的空构造器，类似于 constructor(){}
+> 每一个 class 中，都有一个构造器，如果我们没有手动指定构造器，可以认为类内部有个隐形的空构造器  constructor(){}
 
 > 在 class 中，通过 new 出来的实例访问的属性叫做实例属性，通过类名访问的属性叫做静态属性；静态属性和方法可用 static 修饰
 
@@ -55,7 +55,7 @@
 
 ![](https://i.imgur.com/LPekIym.png)
 
-> 如果一个子类通过 extends 继承了父类，那么如果我们在子类中手动写了构造器，则在 constructor(){} 构造器中**必须先调用** super() 方法
+> 如果一个子类通过 extends 继承了父类，那么如果我们在子类中手动写了构造器，则在 constructor(){} 构造器中**必须先调用** super() 方法（也就是 super() 要放到最前面）
 
 > super()是一个函数，而且它是父类的构造器；子类中的 super() 其实就是父类中 constructor构造器的引用
 
@@ -65,4 +65,31 @@
 
 ![](https://i.imgur.com/COkXJfK.png)
 
-4、使用 class 关键字创建组件的基本语法
+4、使用 class 关键字创建组件
+
+> 基本语法：
+
+> 1、使用 class 关键字创建组件，必须继承 React.Component
+
+> 2、组件内部必须有 render 函数
+
+> 3、render 函数中，要有返回的 JSX 虚拟 DOM 元素
+
+    class 组件名称 extends React.Component {
+        render(){
+           return <div>这是 class 创建的组件</div>
+        }
+    }
+
+![](https://i.imgur.com/puhWbu5.png)
+
+![](https://i.imgur.com/CRfbmn1.png)
+
+5、给 class 创建的组件传参
+
+> 使用 class 关键字创建的组件，如果想使用外界传过来的 props 参数，不需要接收，直接通过 this.props.xxx 访问即可。
+
+> 使用 class 关键字创建的组件,props 也是只读的。
+
+![](https://i.imgur.com/zJWLZpg.png)
+
