@@ -1,4 +1,4 @@
-## 组件的创建与使用以及传递参数
+## 组件的创建与使用以及传递参数(一)
 ### 一、使用构造函数创建组件
 
     function Hello(){}
@@ -59,3 +59,30 @@
 
 3、组件内的 props 属性是只读的
 
+### 四、将react组件抽离为单独的 .jsx 文件
+
+#### （1）创建单独的组件
+
+1、在项目的 src 下创建 component 文件夹
+
+2、在 component 文件夹下创建 Hello.jsx 文件
+
+3、在 Hello.jsx 里创建组件并导出
+
+4、在 index.js 导入 Hello.jsx 文件（导入时注意，默认情况下.jsx不能省略，如果要省略的话需要另外配置）
+
+![](https://i.imgur.com/XWRtJDr.png)
+
+![](https://i.imgur.com/I5abKHf.png)
+
+![](https://i.imgur.com/vlW63m4.png)
+
+![](https://i.imgur.com/k8wpgHB.png)
+
+#### （2）配置 webpack.config.js,来省略 .jsx 后缀名
+
+在 webpack.config.js 里添加一个 resolve 节点，如图：
+
+![](https://i.imgur.com/NqA1jlR.png)
+
+配置好后，重启服务器。现在导入文件时就不需要 .jsx 后缀名了
