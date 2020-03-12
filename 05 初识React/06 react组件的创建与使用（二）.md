@@ -87,3 +87,6 @@
 
 5、给 class 创建的组件传参
 
+> 使用 class 关键字创建的组件，如果想使用外界传过来的 props 参数，不需要接收，直接通过 this.props.xxx 访问即可。
+
+![](https://i.imgur.com/zJWLZpg.png)
