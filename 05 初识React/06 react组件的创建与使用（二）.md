@@ -65,4 +65,22 @@
 
 ![](https://i.imgur.com/COkXJfK.png)
 
-4、使用 class 关键字创建组件的基本语法
+4、使用 class 关键字创建组件
+
+> 基本语法：
+
+> 1、使用 class 关键字创建组件，必须继承 React.Component
+
+> 2、组件内部必须有 render 函数
+
+> 3、render 函数中，要有返回的 JSX 虚拟 DOM 元素
+
+    class 组件名称 extends React.Component {
+        render(){
+           return <div>这是 class 创建的组件</div>
+        }
+    }
+
+![](https://i.imgur.com/puhWbu5.png)
+
+![](https://i.imgur.com/CRfbmn1.png)
