@@ -92,7 +92,3 @@
 > 使用 class 关键字创建的组件,props 也是只读的。
 
 ![](https://i.imgur.com/zJWLZpg.png)
-<<<<<<< HEAD
-
-=======
->>>>>>> 356af592b7192fe093799577a89d0f7302953c2c
