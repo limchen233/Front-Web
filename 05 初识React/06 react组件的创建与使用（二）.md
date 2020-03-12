@@ -84,3 +84,6 @@
 ![](https://i.imgur.com/puhWbu5.png)
 
 ![](https://i.imgur.com/CRfbmn1.png)
+
+5、给 class 创建的组件传参
+
