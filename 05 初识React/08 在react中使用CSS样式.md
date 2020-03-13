@@ -26,3 +26,21 @@
 ![](https://i.imgur.com/uL3s4Qg.png)
 
 ![](https://i.imgur.com/HiFDSWT.png)
+
+（二）抽离样式
+
+1、在标签行内写样式太占空间，而且不美观，我们可以将它抽离出来。
+
+![](https://i.imgur.com/eAK3taW.png)
+
+![](https://i.imgur.com/EF4n291.png)
+
+2、抽离为单独的样式文件
+
+> 在 component 文件夹里新建一个 hello.js 文件，然后在 hello.js 文件里写上 CSS 样式，最后在组件中导入 hello.js 并引用即可。
+
+![](https://i.imgur.com/m3djAWj.png)
+
+![](https://i.imgur.com/IXCrgi1.png)
+
+![](https://i.imgur.com/f0JK2FZ.png)
