@@ -44,3 +44,5 @@
 ![](https://i.imgur.com/IXCrgi1.png)
 
 ![](https://i.imgur.com/f0JK2FZ.png)
+
+3、如果想引入 .css 格式的文件，要先安装 style-loader、css-loader，详情说明请参考本项目的《使用webpack4创建项目》
