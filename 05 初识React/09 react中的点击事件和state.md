@@ -12,3 +12,7 @@
 3、在按钮上直接写匿名函数太麻烦，我们可以把函数提取出来
 
 ![](https://i.imgur.com/Ri2u5Kq.png)
+
+4、在 react 点击事件中，我们通常使用箭头函数
+
+    <button onClick={()=> {this.myclickHandler()}}></button>
