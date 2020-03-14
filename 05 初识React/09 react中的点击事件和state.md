@@ -8,3 +8,7 @@
     <button onClick={function(){console.log('ok)}}>按钮</button>
 
 ![](https://i.imgur.com/tswh4hx.png)
+
+3、在按钮上直接写匿名函数太麻烦，我们可以把函数提取出来
+
+![](https://i.imgur.com/Ri2u5Kq.png)
