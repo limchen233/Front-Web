@@ -102,4 +102,4 @@
 ## 总结
 到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下图：
 
-![](https://i.imgur.com/gzq9LN9.png)
+![](https://i.imgur.com/ckk7Cdz.png)
