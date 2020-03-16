@@ -18,7 +18,7 @@
 
 ### （一）第一阶段
 
-getDefaultProps
+**getDefaultProps**
 
 在组件创建之前，会先调用 getDefaultProps()，全局只调用一次，严格来说，这不是组件生命周期的一部分。在组件被创建并加载时，首先调用 getInitialState()，来初始化组件的状态。
 
