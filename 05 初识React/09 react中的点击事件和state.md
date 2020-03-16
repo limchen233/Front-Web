@@ -16,3 +16,14 @@
 4、在 react 点击事件中，我们通常使用箭头函数
 
     <button onClick={()=> {this.myclickHandler()}}></button>
+
+## 修改 state
+
+在 React 中，如果想要修改 state 中的数据，推荐使用 this.setState({}),例如：this.setState({msg:'123'})
+
+> 注意事项：
+
+> 1、在 setState 中，只会把对应的 state 状态更新，而不会覆盖其它的 state 状态
+
+> 2、this.setState()是异步的，如果想拿到更新后的值，应该调用 this.setState({},callback),
+> 例如：this.setState({msg:'123},function(){console.log(this.state.msg)})
