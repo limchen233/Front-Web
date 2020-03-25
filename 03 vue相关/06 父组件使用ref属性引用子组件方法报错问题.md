@@ -9,7 +9,7 @@
 ![](https://i.imgur.com/YtukVqK.png)
 
 解决方法：把 mounted 里的调用放到一个定时器里就可以了
-我的理解是因为 ref 属性初始渲染时，它们还不存在，所以不能访问。加个定时器延时执行。但是其他使用 ref 属性调用的方法又没有报错，百思不得其解。
+我的理解是因为 ref 属性初始渲染时，子组件还没挂载好，所以这个方法还不存在，所以不能访问。加个定时器延时执行。但是其他使用 ref 属性调用的方法又没有报错，百思不得其解。
 
     setTimeout(() => {
       this.tabMap[this.tabName] && this.tabMap[this.tabName]()
