@@ -22,9 +22,7 @@
 </div>
 ```
 
-![image-20200422100301120](C:%5CUsers%5Cchenlim%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200422100301120.png)
 
-![image-20200422100317370](C:%5CUsers%5Cchenlim%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200422100317370.png)
 
 2、纯`CSS`实现绘制各种三角形（各种角度）
 
