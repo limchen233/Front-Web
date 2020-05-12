@@ -46,7 +46,37 @@
     </div>
   </header>
   <!-- 导航条 -->
-  <nav class="wjs_nav"></nav>
+  <nav class="navbar navbar-default wjs_nav">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <!-- sr-only:屏幕阅读器，PC、移动端看不到 -->
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">微金所</a></li>
+          <li><a href="#">微金所</a></li>
+          <li><a href="#">微金所</a></li>
+          <li><a href="#">微金所</a></li>
+          <li><a href="#">微金所</a></li>
+          <li><a href="#">微金所</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">个人中心</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
   <!-- 轮播图 -->
   <div class="wjs_banner"></div>
   <!-- 信息块 -->
@@ -59,6 +89,7 @@
   <div class="wjs_news"></div>
   <!-- 合作伙伴 -->
   <footer class="wjs_parter"></footer>
+
 
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
