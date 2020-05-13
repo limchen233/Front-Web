@@ -26,9 +26,48 @@
             transform: translate(-50%);
             border: 1px solid #ccc;
             border-top: none;
+            z-index: 1000;
           }
         }
       }
     }
+  }
+}
+// 导航样式
+.wjs_nav{
+  .navbar-brand{
+    height: 60px;
+    line-height: 30px;
+    > .wjs_icon{
+      font-size: 40px;
+    }
+    > span:first-of-type{
+      color: @baseColor;
+    }
+    > span:last-of-type{
+      color: #333;
+    }
+  }
+  // 修改导航项的样式
+  .navbar-nav{
+    > li{
+      > a{
+        line-height: 30px;
+        font-size: 16px;
+      }
+      > a:hover,a:focus{
+        border-bottom: 1px solid @baseColor;
+      }
+    }
+    .active{
+      > a,a:hover,a:focus{
+        background-color: transparent;
+        border-bottom: 1px solid @baseColor;
+      }
+    }
+  }
+
+  .navbar-toggle{
+    margin-top: 13px;
   }
 }
