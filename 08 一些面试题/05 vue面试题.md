@@ -81,13 +81,9 @@
 #### 6.`vue`中hash模式和history模式的区别
 
 - 相同点：都不会重新加载页面
-
 - hash模式下，请求地址带#，history不带
-
-- ###### hash 模式下，使用 URL 的 hash 来模拟一个完整的 URL，仅 hash 符号之前的内容会被包含在请求中，如 [www.abc.com](http://www.abc.com)，因此对于后端来说，即使没有做到对路由的全覆盖，也不会返回 404 错误。
-
-- ###### history 模式下，这种模式充分利用 `history.pushState API` 来完成 URL 跳转而无须重新加载页面。前端的 URL 必须和实际向后端发起请求的 URL 一致，如 [www.abc.com/book/id。(http://www.abc.com/book/id。如果后端缺少对/book/id 的路由处理，将返回 404 错误。
-
+- hash 模式下，使用 URL 的 hash 来模拟一个完整的 URL，仅 hash 符号之前的内容会被包含在请求中，如 http://www.abc.com，因此对于后端来说，即使没有做到对路由的全覆盖，也不会返回 404 错误。
+- history 模式下，这种模式充分利用 `history.pushState API` 来完成 URL 跳转而无须重新加载页面。前端的 URL 必须和实际向后端发起请求的 URL 一致，如 http://www.abc.com/book/id。如果后端缺少对/book/id 的路由处理，将返回 404 错误。
 - 兼容性。hash 可以支持低版本浏览器和 IE。
 
 #### 7.`v-if`和`v-for`能同时使用吗？为什么？
