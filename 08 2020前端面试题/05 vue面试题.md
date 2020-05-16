@@ -2,20 +2,20 @@
 
 #### 1.`vue`组件有哪些生命周期函数？
 
-- `beforeCreate`、`created`、`beforeMount`、mounted、`beforeUpdate`、`updated`、`beforeDestroy`、`destroyed`
-- <keep-alive>有自己独立的钩子函数`activated`和`deactivated`,当引入`keep-alive` 的时候，页面第一次进入，钩子的触发顺序`created`-> `mounted`-> `activated`，退出时触发`deactivated`。当再次进入（前进或者后退）时，只触发`activated`。
+- `beforeCreate`、`created`、`beforeMount`、`mounted`、`beforeUpdate`、`updated`、`beforeDestroy`、`destroyed`
+- `<keep-alive>`有自己独立的钩子函数`activated`和`deactivated`,当引入`keep-alive` 的时候，页面第一次进入，钩子的触发顺序`created`-> `mounted`-> `activated`，退出时触发`deactivated`。当再次进入（前进或者后退）时，只触发`activated`。`keep-alive`的作用是用于**保存组件的渲染状态**。
 
 #### 2.`vue`的父组件和子组件生命周期钩子执行顺序是什么？
 
 - **渲染过程**
 
-  父组件挂载一定是等子组件都挂载完成后，才算是父组件挂载完成，所以父组件的mounted在子组件的mounted之后
+  父组件挂载一定是等子组件都挂载完成后，才算是父组件挂载完成，所以父组件的`mounted`在子组件的`mounted`之后
 
   父`beforeCreate` -> 父`created `-> 父`beforeMount `-> 子`beforeCreate `-> 子`created `-> 子`beforeMount `-> 子`mounted `-> 父`mounted`
 
 - **更新过程**
 
-  父`beforeUpdate `-> 子`beforeUpdate`->子`updated `-> 父`updted`
+  父`beforeUpdate `-> 子`beforeUpdate`->子`updated `-> 父`updated`
 
 - **销毁过程**
 
@@ -29,7 +29,7 @@
 
 - `router.beforeEach(to,from,next)` 前置守卫
 - `router.beforeResolve` 解析守卫
-- `router.afterEach(to,from)` 后置钩子,不会接受 `next` 函数也不会改变导航本身：
+- `router.afterEach(to,from)` 后置钩子,不会接受 `next` 函数，也不会改变导航本身
 
 单个路由独享的
 
