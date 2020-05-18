@@ -90,8 +90,8 @@ webpack4中有一个很大的特性，就是约定大于配置（目的是压缩
 
 
 
-> Webpack的打包过程：
+> Webpack的打包过程：（webpack3和webpack4有点小区别）
 >
-> - 首先webpack打包需要指定入口和出口，当webpack发现我们并没有通过命令行形式给它指定入口和出口的时候，webpack就会去项目的根目录下查找一个叫webpack.config.js的配置文件
+> - 首先webpack3打包需要指定入口和出口，当webpack发现我们并没有通过命令行形式给它指定入口和出口的时候，webpack就会去项目的根目录下查找一个叫webpack.config.js的配置文件
 > - 当找到这个文件,webpack会去解析执行这个文件.解析执行完后,就得到了配置文件中导出的配置对象（如果webpack.config.js中没有配置，webpack3直接会报错，webpack4有自己默认的入口和出口，默认的入口文件如果没有找到才会报错。）
 > - 当webpack拿到配置对象后,就拿到了指定的入口和出口,然后进行打包构建
