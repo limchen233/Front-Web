@@ -3,8 +3,8 @@
 打开命令行工具,新建一个文件,进入该文件--初始化 package.json
 
 	mkdir webpack-demo
-    cd webpack-demo
-    npm init -y //快速初始化项目
+	cd webpack-demo
+	npm init -y //快速初始化项目
 
 执行完之后,webpack-demo里面会多出一个package.json的文件
 
@@ -25,7 +25,7 @@
 注意:webpack4中,webpack命令行相关的内容迁移到了webpack-cli,所以除了安装webpack外,我们还需要安装webpack-cli.
 
 	npm i webpack-cli -D // -D是--save-dev的缩写，意思是将webpack-cli添加到开发依赖中(devDependencies), -S 则是添加到生产依赖中（dependencies）
-	
+
 > 到这一步,我的电脑现在直接运行webpack会报错,无法识别webpack命令.
 
 ![](https://raw.githubusercontent.com/limchen233/images/master/webpack4_images/3.png)
@@ -66,7 +66,13 @@
 
 提示找不到入口文件
 
-之前在 webpack3 中我们是在 webpack.config.js 中配置了一个入口文件。webpack4中有一个很大的特性，就是约定大于配置（目的是压缩体积）。它约定的默认入口文件是src下的index.js,所以我们在这里不用配置（也可以选择配置，会把默认的覆盖），直接把项目src目录下的main.js改为index.js就可以了。然后运行 npx webpack
+之前在 webpack3 中我们是在 webpack.config.js 中配置了一个入口文件。
+
+![](https://i.imgur.com/Atz1Qjx.png)
+
+
+
+webpack4中有一个很大的特性，就是约定大于配置（目的是压缩体积）。它约定的默认入口文件是src下的index.js,所以我们在这里不用配置（也可以选择配置，会把默认的覆盖），直接把项目src目录下的main.js改为index.js就可以了。然后运行 npx webpack
 
 ![](https://i.imgur.com/2wOCUsf.png)
 
@@ -81,3 +87,11 @@
 ![](https://i.imgur.com/powbIAf.png)
 
 ![](https://i.imgur.com/jlvwSJZ.png)
+
+
+
+> Webpack的打包过程：
+>
+> - 首先webpack打包需要指定入口和出口，当webpack发现我们并没有通过命令行形式给它指定入口和出口的时候，webpack就会去项目的根目录下查找一个叫webpack.config.js的配置文件
+> - 当找到这个文件,webpack会去解析执行这个文件.解析执行完后,就得到了配置文件中导出的配置对象（如果webpack.config.js中没有配置，webpack3直接会报错，webpack4有自己默认的入口和出口，默认的入口文件如果没有找到才会报错。）
+> - 当webpack拿到配置对象后,就拿到了指定的入口和出口,然后进行打包构建
