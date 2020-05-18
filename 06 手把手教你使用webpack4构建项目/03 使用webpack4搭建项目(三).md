@@ -11,9 +11,9 @@
 插件在 webpack.consig.js 的配置分三步走：
 
 > 1、引入插件
-> 
+>
 > 2、创建插件实例
-
+>
 > 3、挂载到暴露的对象上
 
 ![](https://i.imgur.com/kcYxCxp.png)
