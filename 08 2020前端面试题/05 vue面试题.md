@@ -176,6 +176,10 @@
 - assets中的文件会经过`webpack`打包，重新编译，推荐该方式。而static中的文件，不会经过编译
 - static中建议放一些外部第三方文件，自己的放到assets下，别人的放到static中。
 
+#### 13.介绍一下`vuex`
+
+`vuex`是`vue`的状态管理模式。有`state`、`mutation`、`action`属性。更改`store`中state属性的状态的唯一方法是提交`mutation`。
+
 ## `Vue`相关原理分析
 
 #### 1.`vue`的响应式原理
