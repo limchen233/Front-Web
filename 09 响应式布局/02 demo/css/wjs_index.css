@@ -27,6 +27,9 @@
   border-top: none;
   z-index: 1000;
 }
+.wjs_nav.navbar {
+  margin-bottom: 0;
+}
 .wjs_nav .navbar-brand {
   height: 60px;
   line-height: 30px;

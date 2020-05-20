@@ -29,4 +29,26 @@ $(function(){
       })
     }
   }).trigger('resize') // trigger()立即执行一次
+
+  /*添加移动端的滑动操作*/
+  let startX,endX;
+  let carousel_inner=$(".carousel-inner")[0]
+
+  /*获取当前轮播图*/
+  let carousel=$(".carousel")
+
+  carousel_inner.addEventListener("touchstart",function(e){
+      startX= e.targetTouches[0].clientX
+  });
+  carousel_inner.addEventListener("touchend",function(e){
+      endX= e.changedTouches[0].clientX
+      if(endX-startX > 0){
+          /*上一张*/
+          carousel.carousel('prev')
+      }
+      else if(endX-startX < 0){
+          /*下一张*/
+          carousel.carousel('next')
+      }
+  });
 })
