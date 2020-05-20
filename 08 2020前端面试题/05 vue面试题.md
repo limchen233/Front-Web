@@ -186,6 +186,10 @@
 - `action`中不进行状态的直接更改，而是通过`commit`触发`mutation`去更改状态
 - `mutation`的触发通过`store.commit`,`action`的触发通过`store.dispatch`进行
 
+#### 15.有三个组件共享了`vuex`中`state`的状态，其中一个组件改变了状态，另外两个组件不改变怎么实现？
+
+- 可以用深拷贝在需要改变的组件里拷贝一份源对象，然后重新赋值。let copy = JSON.parse(JSON.stringfy(sourceObject))
+
 ## `Vue`相关原理分析
 
 #### 1.`vue`的响应式原理
