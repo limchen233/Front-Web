@@ -178,7 +178,19 @@
 
 #### 13.介绍一下`vuex`
 
-- `vuex`是`vue`的状态管理模式。有`state`、`mutation`、`action`属性。更改`store`中state属性的状态的唯一方法是提交`mutation`。
+- `vuex`是`vue`的状态管理模式。有`state`、`mutation`、`action`、`getter`、`module`属性。更改`store`中state属性的状态的唯一方法是提交`mutation`。
+
+  > state:存放一些共享属性。
+  >
+  > mutation：一些能改变属性的方法，必须显示的提交mutation才能更改属性状态，过程		  是同步的。
+  >
+  > action：`action`提交的是mutation，而不是直接更改状态。action可以包含异步操作。
+  >
+  > ​		可以通过context.commit()直接提交mutation，也可以通过			       	    store.dispatch()来触发action以提交mutation。
+  >
+  > getter：相当于`store`的计算属性，getter的返回值会根据它的依赖被缓存起来，且只有    		当它的依赖发生了变化才会被重新计算。
+  >
+  > module：允许将store切割成模块（module），每个module拥有自己的state、mutation、action、getter。适用于复杂的应用。
 
 #### 14.`mutation`和`action`的区别?
 
