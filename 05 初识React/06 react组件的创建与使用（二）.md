@@ -49,17 +49,17 @@
 
 > 在 class 中，可以使用 extends 关键字，实现子类继承父类
 
-![](https://i.imgur.com/AvXSKXk.png)
+![](C:\personalFiles\images\images\AvXSKXk.png)
 
 > 在父类中定义一个方法,子类可以通过实例访问到这个方法
 
-![](https://i.imgur.com/LPekIym.png)
+![](C:\personalFiles\images\images\LPekIym.png)
 
 > 如果一个子类通过 extends 继承了父类，那么如果我们在子类中手动写了构造器，则在 constructor(){} 构造器中**必须先调用** super() 方法（也就是 super() 要放到最前面）
 
 > super()是一个函数，而且它是父类的构造器；子类中的 super() 其实就是父类中 constructor构造器的引用
 
-![](https://i.imgur.com/qBzQUQw.png)
+![](C:\personalFiles\images\images\qBzQUQw.png)
 
 > 如果一个子类中有属性是独有的，则该属性应该挂载在所属的子类中，而非父类构造器中，因为挂载到父类中所有继承该父类的子类都将获得此属性。挂载后需要在子类构造器中分配一下，this.xxx = xxx
 
@@ -81,9 +81,9 @@
         }
     }
 
-![](https://i.imgur.com/puhWbu5.png)
+![](C:\personalFiles\images\images\puhWbu5.png)
 
-![](https://i.imgur.com/CRfbmn1.png)
+![](C:\personalFiles\images\images\CRfbmn1.png)
 
 5、给 class 创建的组件传参
 
@@ -91,4 +91,4 @@
 
 > 使用 class 关键字创建的组件,props 也是只读的。
 
-![](https://i.imgur.com/zJWLZpg.png)
+![](C:\personalFiles\images\images\zJWLZpg.png)
