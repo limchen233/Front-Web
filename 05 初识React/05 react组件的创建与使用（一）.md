@@ -15,7 +15,7 @@
 
 然后运行 npm run dev,结果和我们预想的有点不一样，页面报错了！
 
-![](https://i.imgur.com/qc5sVcO.png)
+![](C:%5CpersonalFiles%5CFront-Web%5C05%20%E5%88%9D%E8%AF%86React%5C05%20react%E7%BB%84%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89.assets%5Cqc5sVcO.png)
 
 组件应该返回个状态（需要个 return 语句），那么我们把 Hello 组件修改一下
 
