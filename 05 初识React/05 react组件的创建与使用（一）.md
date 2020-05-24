@@ -15,7 +15,7 @@
 
 然后运行 npm run dev,结果和我们预想的有点不一样，页面报错了！
 
-![](C:%5CpersonalFiles%5Cimages%5Cimages%5Cqc5sVcO.png)
+![](https://github.com/limchen233/Front-Web/blob/master/10 images/qc5sVcO.png?raw=true)
 
 组件应该返回个状态（需要个 return 语句），那么我们把 Hello 组件修改一下
 
