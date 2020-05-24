@@ -5,7 +5,7 @@
 
 这样我们就创建了一个组件，创建好后怎么使用呢？直接以标签的形式放到页面中即可！（不需要注册，vue中组件要注册才能使用）
 
-    ReactDom.render(
+    ![qc5sVcO](C:%5CpersonalFiles%5CFront-Web%5C10%20images%5Cqc5sVcO.png)ReactDom.render(
       <div>
         测试组件
         {/*直接把组件以标签的形式放到页面中*/}
@@ -15,7 +15,7 @@
 
 然后运行 npm run dev,结果和我们预想的有点不一样，页面报错了！
 
-![](C:%5CpersonalFiles%5CFront-Web%5C10%20images%5Cqc5sVcO.png)
+![](C:%5CpersonalFiles%5Cimages%5Cimages%5Cqc5sVcO.png)
 
 组件应该返回个状态（需要个 return 语句），那么我们把 Hello 组件修改一下
 
