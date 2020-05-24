@@ -78,3 +78,7 @@ flex position margin
 
 ```
 
+3.relative/absolute/fixed区别？
+
+- relative不会脱离文档流
+- absolute和fixed会脱离文档流
