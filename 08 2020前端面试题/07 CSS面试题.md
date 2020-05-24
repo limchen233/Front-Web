@@ -16,15 +16,65 @@
 
 flex position margin
 
+```html
+<div class="parent" style="height:200px;width:200px;">
+  <div class="child" style="height:100px;width:100px;"> Hello</div>
+</div>
+```
+
+
+
 ```scss
-// flex布局
-div{
-	display:flex;
+// CSS3的flex布局--未知高度和宽度
+.parent{
+  display:flex;
   justify-content:center;
   align-items:center;
 }
 
-// position定位
+// CSS3的position定位--未知高度和宽度
+.parent{
+  position:relative;
+  .child{
+	  position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+  }
+}
+
+//margin+positon--未知高度和宽度
+.parent{
+  position:relative;
+  .child{
+	  position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto;
+  }
+}
+
+// 利用绝对定位，将元素的top和left属性都设为50%，再利用margin边距，将元素回拉它本身高宽的一半，
+// 实现垂直居中。要知道宽和高。
+.parent{
+  position:relative;
+  .child{
+	  position:absolute;
+    left:50%;
+    top:50%;
+    margin:-50px 0 0 -50px; 或 margin:-25% 0 0 -25%;
+  }
+}
+
+// table--当要被居中的元素是inline或者inline-block的时候,可以巧妙的将父级容器设置为
+// display:table-cell，配合text-align:center和vertical-align:middle即可以实现水平垂直居中。
+.parent{
+  display:table-cell;
+  text-align:center;
+  vertical-align:middle;
+}
 
 ```
 
