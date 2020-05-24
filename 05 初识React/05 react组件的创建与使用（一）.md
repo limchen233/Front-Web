@@ -5,7 +5,7 @@
 
 这样我们就创建了一个组件，创建好后怎么使用呢？直接以标签的形式放到页面中即可！（不需要注册，vue中组件要注册才能使用）
 
-    ![qc5sVcO](C:%5CpersonalFiles%5CFront-Web%5C10%20images%5Cqc5sVcO.png)ReactDom.render(
+    ReactDom.render(
       <div>
         测试组件
         {/*直接把组件以标签的形式放到页面中*/}
