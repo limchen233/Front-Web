@@ -80,5 +80,5 @@ flex position margin
 
 3.relative/absolute/fixed区别？
 
-- relative不会脱离文档流
-- absolute和fixed会脱离文档流
+- relative不会脱离文档流，相对于自己定位。
+- absolute和fixed会脱离文档流，fixed是相对于浏览器，absolute是相对于有定位的父元素或祖先元素。
