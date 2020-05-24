@@ -95,3 +95,42 @@
     background-size: cover;
   }
 }
+
+// 信息块样式
+.wjs_info{
+  padding: 30px;
+  .wjs_icon{
+    font-size: 30px;
+  }
+  .row{
+    > div{
+        margin-top: 10px;
+      > a:hover{
+          color: @baseColor;
+      }
+    }
+  }
+}
+
+// 预约样式
+.wjs_reverse{
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  .wjs_icon{
+    font-size: 18px;
+  }
+  a:hover{
+    color: @baseColor;
+  }
+  .reverse_now{
+    color: @baseColor;
+    border-bottom: 1px dashed @baseColor;
+  }
+}
+
+// 产品样式
+.wjs_product{
+  clear: both; // 清除浮动
+}

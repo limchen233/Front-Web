@@ -77,3 +77,34 @@
   /* 设置背景图片的大小，会自适应 */
   background-size: cover;
 }
+.wjs_info {
+  padding: 30px;
+}
+.wjs_info .wjs_icon {
+  font-size: 30px;
+}
+.wjs_info .row > div {
+  margin-top: 10px;
+}
+.wjs_info .row > div > a:hover {
+  color: #e92322;
+}
+.wjs_reverse {
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.wjs_reverse .wjs_icon {
+  font-size: 18px;
+}
+.wjs_reverse a:hover {
+  color: #e92322;
+}
+.wjs_reverse .reverse_now {
+  color: #e92322;
+  border-bottom: 1px dashed #e92322;
+}
+.wjs_product {
+  clear: both;
+}
