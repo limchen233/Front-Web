@@ -29,14 +29,14 @@
 
 <script>
   $.ajax({
-  	url:'http://localhost:8080/api/jsonp',
-  	dataType:'jsonp',
-  	type:'get',
-  	data:{
+    url:'http://localhost:8080/api/jsonp',
+    dataType:'jsonp',
+    type:'get',
+    data:{
       msg:'hello'
     },
-  	jsonp:'cb',
-  	success:function(data){
+    jsonp:'cb',
+    success:function(data){
       console.log(data)
     }
   })
