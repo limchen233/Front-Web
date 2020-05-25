@@ -1,6 +1,6 @@
 在`webpack`中可以配置`proxy`来快速获得接口代理的能力。
 
-webpack4:
+(1) webpack4:
 
 ```javascript
 const path = require("path");
@@ -56,5 +56,23 @@ module.exports = {
 </script>
 </body>
 </html>
+```
+
+(2) vue-cli 3.x
+
+在项目根目录下创建一个vue.config.js文件
+
+```
+// vue.config.js
+module.exports = {
+  devServer:{
+    port:8000,
+    proxy:{
+      '/api':{
+        target:'http://localhost:8080'
+      }
+    }
+  }
+}
 ```
 
