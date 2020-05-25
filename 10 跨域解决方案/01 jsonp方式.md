@@ -16,7 +16,7 @@
 <script type="text/javascript">
   window.jsonpCallback = function(res){
     console.log(res)
-	}
+  }
 </script>
 
 <script type="text/javascript" src="http://localhost:8080/api/jsonp?msg=hello&cb=jsonpCallback"></script>
@@ -39,7 +39,7 @@
   	success:function(data){
       console.log(data)
     }
-	})
+  })
 </script>
 ```
 
