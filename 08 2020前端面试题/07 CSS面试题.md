@@ -82,3 +82,18 @@ flex position margin
 
 - relative不会脱离文档流，相对于自己定位。
 - absolute和fixed会脱离文档流，fixed是相对于浏览器，absolute是相对于有定位的父元素或祖先元素。
+
+**4.响应式布局**
+
+通过媒体查询（@media screen）实现
+
+（1）媒体查询原则
+
+- 向上兼容，向下覆盖
+- 从小到大用 768px~992px~1200px（mix-width）
+- 从大到小 1200px~992px~768px（max-width）
+
+（2）min/max-width和min/max-device-width区别
+
+- min/max-width：它是指当前可视区域的宽度，在PC端和移动端都能正常响应
+- min/max-device-width：指当前设备的宽度，在移动端正常响应，PC端不响应（PC端改变的是浏览器宽度，不是设备）
