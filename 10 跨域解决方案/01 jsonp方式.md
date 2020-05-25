@@ -15,7 +15,7 @@
 ```javascript
 <script type="text/javascript">
   window.jsonpCallback = function(res){
-		console.log(res)
+    console.log(res)
 	}
 </script>
 
