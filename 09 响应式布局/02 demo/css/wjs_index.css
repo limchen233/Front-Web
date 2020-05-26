@@ -107,4 +107,26 @@
 }
 .wjs_product {
   clear: both;
+  background-color: #eee;
+  padding: 10px;
+}
+.wjs_product .nav-tabs > li {
+  padding: 0 10px;
+}
+.wjs_product .nav-tabs > li > a {
+  line-height: 30px;
+  border-radius: 0px;
+  border: none;
+  background-color: transparent;
+}
+.wjs_product .nav-tabs > li > a:hover {
+  border-bottom: 1px solid #e92322;
+}
+.wjs_product .nav-tabs > li.active > a,
+.wjs_product .nav-tabs > li.active a:hover,
+.wjs_product .nav-tabs > li.active a:focus {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  border-bottom: 2px solid #e92322;
 }

@@ -133,4 +133,29 @@
 // 产品样式
 .wjs_product{
   clear: both; // 清除浮动
+  background-color: #eee;
+  padding: 10px;
+  // 导航项样式的修改
+  .nav-tabs{
+    > li{
+      padding: 0 10px;
+      > a{
+        line-height: 30px;
+        border-radius: 0px;
+        border: none;
+        background-color: transparent;
+      }
+      > a:hover{
+        border-bottom: 1px solid @baseColor;
+      }
+      &.active{
+        >a,a:hover,a:focus{
+          border: none;
+          border-radius: 0;
+          background-color: transparent;
+          border-bottom: 2px solid @baseColor;
+        }
+      }
+    }
+  }
 }

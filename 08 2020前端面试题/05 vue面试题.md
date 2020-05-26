@@ -210,6 +210,11 @@
 
 - vue提倡单向数据流，即父级props的更新会流向子组件，但是反过来则不行。这是防止意外的改变父组件状态，使得应用难以理解。
 
+#### 18.localStorage与vuex的区别？
+
+- vuex存储在内存，localStorage则以文件的方式存储在本地。localStorage和sessionStorage只能存储字符串类型，对于复杂的对象可以使用ECMAScript提供的JSON.stringify(obj)将其转成字符串，取出来时使用 JSON.parse(str)重新转成对象。
+- vuex是响应式的
+
 ## `Vue`相关原理分析
 
 #### 1.`vue`的响应式原理
