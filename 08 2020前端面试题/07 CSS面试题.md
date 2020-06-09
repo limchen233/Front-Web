@@ -97,3 +97,24 @@ flex position margin
 
 - min/max-width：它是指当前可视区域的宽度，在PC端和移动端都能正常响应
 - min/max-device-width：指当前设备的宽度，在移动端正常响应，PC端不响应（PC端改变的是浏览器宽度，不是设备）
+
+**5.页面上有2000个相同的元素要隐藏，怎么做性能优化？**
+
+- 可以将元素的属性visibility设置为hidden，设置为hidden属性后，元素还占位置，不会发生重排（回流）
+
+**6.display:none与visibility:hidden区别？**
+
+a.隐藏元素：
+
+- display:none 隐藏后的元素不占据任何空间。它的宽度、高度等各种属性值都将“丢失”
+- visibility:hidden 隐藏的元素空间依旧存在。它仍具有高度、宽度等属性值
+
+b.性能角度：
+
+- display:none 会触发 reflow（回流）
+- visibility:hidden 只会触发 repaint（重绘），因为没有发现位置变化
+
+c.对子元素的影响：
+
+- display:none 一旦父节点元素应用了 display:none，父节点及其子孙节点元素全部不可见，而且无论其子孙元素如何设置 display 值都无法显示；
+- visibility:hidden 一旦父节点元素应用了 visibility:hidden，则其子孙后代也都会全部不可见。不过存在隐藏“失效”的情况。当其子孙元素应用了 visibility:visible，那么这个子孙元素又会显现出来。
