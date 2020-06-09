@@ -36,7 +36,7 @@ flex position margin
 .parent{
   position:relative;
   .child{
-	  position:absolute;
+    position:absolute;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
@@ -47,7 +47,7 @@ flex position margin
 .parent{
   position:relative;
   .child{
-	  position:absolute;
+    position:absolute;
     top:0;
     right:0;
     bottom:0;
@@ -61,7 +61,7 @@ flex position margin
 .parent{
   position:relative;
   .child{
-	  position:absolute;
+    position:absolute;
     left:50%;
     top:50%;
     margin:-50px 0 0 -50px; 或 margin:-25% 0 0 -25%;
