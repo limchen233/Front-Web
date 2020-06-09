@@ -118,3 +118,23 @@ c.对子元素的影响：
 
 - display:none 一旦父节点元素应用了 display:none，父节点及其子孙节点元素全部不可见，而且无论其子孙元素如何设置 display 值都无法显示；
 - visibility:hidden 一旦父节点元素应用了 visibility:hidden，则其子孙后代也都会全部不可见。不过存在隐藏“失效”的情况。当其子孙元素应用了 visibility:visible，那么这个子孙元素又会显现出来。
+
+**7.opacity与rgba有区别？**
+
+区别：opacity会继承父元素的opacity属性，而rgba设置的元素的后代不会继承不透明属性。
+
+```css
+opacity:value|inherit;
+```
+
+value 取值0~1，0为完全透明，1为完全不透明。默认是继承父元素opacity属性，所以子元素会继承父元素的opacity属性值，从而产生相同的效果。
+
+但是单独设置子元素opacity的值会产生单独的效果，前提是属性值小于等于父元素的属性值，否则修改无效，继承保持父元素的属性值。
+
+```css
+rgba(r,g,b,a)
+```
+
+rgba函数在rgb颜色模式基础上增加了alpha通道，alpha通道是不透明度，这样可以在设置颜色的同时去设置透明度。alpha取值在0~1之间。
+
+设置rgba只会对元素本身产生影响，因为无法继承，所以不会对子元素产生影响。
