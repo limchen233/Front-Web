@@ -11,3 +11,11 @@
 `ChangeOrigin`属性是是否支持跨域，要设为`true`，才支持跨域。
 
 以上设置好后就可以跨域访问了。
+
+还没完，继续看。。。。
+
+有时候我们项目打包后可能会出点小问题，就是我们放在`assets`下的图片打包上传后没有显示出来，不用急，修改下路径就可以了。
+
+还是`config/index.js`文件，找到`build`属性下的`assetsPublicPath：'/'`，修改为`assetsPublicPath：'./'`就可以了。
+
+![](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200624233148739.png)
