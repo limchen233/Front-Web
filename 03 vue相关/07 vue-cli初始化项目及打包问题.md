@@ -1,19 +1,35 @@
-## 使用vue-cli初始化项目步骤
+## 使用vue-cli初始化项目及打包发布步骤
 
 ### 1.全局安装vue-cli工具
-​    npm/cnpm i vue-cli -g
+
+```
+npm i vue-cli -g 老版本
+```
+
+```
+npm i @vue/cli -g 新版本
+```
+
+如果你已经全局安装了旧版本的 `vue-cli` (1.x 或 2.x)，你需要先通过 `npm uninstall vue-cli -g` 或 `yarn global remove vue-cli` 卸载它。
+
 ### 2.初始化一个项目
-​    vue init -y/vue init webpack 项目名
+​    `vue init -y/vue init webpack` 项目名
 
 > **项目名不能有大写字母**
 > 
 > 如果是用的 vue init -y 直接在项目根目录下初始化就好了，如果是用的 vue init webpack 项目名，则要按提示操作
 
 ### 3.启动项目
-   npm start/npm run dev
+
+```
+npm run dev
+```
+
 ### 4.生产环境打包
 
-  npm run build
+```
+ npm run build
+```
 
   执行成功后会在项目根目录下生成一个dist文件夹
 
