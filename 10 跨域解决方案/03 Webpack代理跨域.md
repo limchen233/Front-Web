@@ -30,6 +30,6 @@ module.exports={
 
 以上设置好后就可以跨域访问了。
 
-![https://raw.githubusercontent.com/limchen233/picgo/blob/master/img/image-20200624231757237.png]()
+![](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200624231757237.png)
 
 ![](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200625201600434.png)
