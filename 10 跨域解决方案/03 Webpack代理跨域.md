@@ -22,8 +22,6 @@ module.exports={
 }
 ```
 
-
-
 代码中的target是你要请求的接口地址，一般是`ip` + 端口号。
 
 `ChangeOrigin`属性是是否支持跨域，要设为`true`，才支持跨域。
@@ -31,3 +29,7 @@ module.exports={
 然后在发请求时将原来的请求地址改为`/api`
 
 以上设置好后就可以跨域访问了。
+
+![](C:\Users\chenlim\AppData\Roaming\Typora\typora-user-images\image-20200625201433568.png)
+
+![](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200625201600434.png)
