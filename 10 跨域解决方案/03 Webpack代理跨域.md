@@ -31,9 +31,3 @@ module.exports={
 然后在发请求时将原来的请求地址改为`/api`
 
 以上设置好后就可以跨域访问了。
-
-还没完，继续看。。。。
-
-有时候我们项目打包后可能会出点小问题，就是我们放在`assets`下的图片打包上传后没有显示出来，不用急，修改下路径就可以了。
-
-还是`config/index.js`文件，找到`build`属性下的`assetsPublicPath：'/'`，修改为`assetsPublicPath：'./'`就可以了。

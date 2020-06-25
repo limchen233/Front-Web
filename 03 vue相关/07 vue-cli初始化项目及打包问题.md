@@ -14,6 +14,7 @@
 ### 4.生产环境打包
 
   npm run build
+
   执行成功后会在项目根目录下生成一个dist文件夹
 
 ### 5.生产环境发布
@@ -24,3 +25,12 @@
 执行
 
     serve dist
+
+### 6.打包发布后图片不显示
+
+有时候我们项目打包后可能会出点小问题，就是我们放在`assets`下的图片打包上传后没有显示出来，不用急，修改下路径就可以了。
+
+找到`config/index.js`文件，打开`index.js`找到`build`属性下的`assetsPublicPath：'/'`，修改为`assetsPublicPath：'./'`就可以了。
+
+![](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200625194725907.png)
+
