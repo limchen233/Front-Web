@@ -9,3 +9,12 @@
 ![image-20200716171605995](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200716171605995.png)
 
 重新启动项目，Ok！
+
+需要用到的地方直接引入定义的变量名就可以了，例如：定义了一个全局变量`$activeColor:#fff;`
+
+```scss
+div{
+  color:$activeColor;
+}
+```
+
