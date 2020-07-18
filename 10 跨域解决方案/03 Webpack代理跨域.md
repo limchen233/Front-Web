@@ -26,10 +26,6 @@ module.exports={
 
 `ChangeOrigin`属性是是否支持跨域，要设为`true`，才支持跨域。
 
-然后在发请求时将原来的请求地址改为`/api`
-
 以上设置好后就可以跨域访问了。
 
 ![](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200624231757237.png)
-
-![](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200625201600434.png)
