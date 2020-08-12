@@ -9,3 +9,7 @@
 第二种：直接在`package.json`里的`scripts`下的`dev`属性里加上`--host 你的ip地址或0.0.0.0`，然后重新启动项目
 
 ![](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20200702173557927.png)
+
+——————————————————————更新————————————————————————————
+
+如果上面填写的是具体的`IP`地址，项目是不能在`localhost`下运行的。`config/index.js`和`package.json`的配置要改为`0.0.0.0`，这样就既可以用`localhost`访问，又支持`ip`访问项目（输入本地`ip`地址，不是4个0）
