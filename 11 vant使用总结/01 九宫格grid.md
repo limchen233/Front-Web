@@ -17,7 +17,7 @@
 
 // 修改后的代码
 <van-grid-item text="巡察实施" to="/inspection">
-	<div slot="default">
+    <div slot="default">
     	<img src="../../assets/巡查实施.svg" alt />
     </div>
 </van-grid-item>
