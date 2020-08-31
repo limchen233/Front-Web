@@ -13,11 +13,13 @@ npm i @vue/cli -g 新版本
 如果你已经全局安装了旧版本的 `vue-cli` (1.x 或 2.x)，你需要先通过 `npm uninstall vue-cli -g` 或 `yarn global remove vue-cli` 卸载它。
 
 ### 2.初始化一个项目
-​    `vue init -y/vue init webpack` 项目名
+​    `vue init -y/vue init webpack 项目名` (vue-cli2.xx的方式)
+
+​	`vue create 项目名`(vue/cli3xx的方式)
 
 > **项目名不能有大写字母**
-> 
-> 如果是用的 vue init -y 直接在项目根目录下初始化就好了，如果是用的 vue init webpack 项目名，则要按提示操作
+>
+> vue-cli2，如果是用的 vue init -y 直接在项目根目录下初始化就好了，如果是用的 vue init webpack 项目名，则要按提示操作
 
 ### 3.启动项目
 
