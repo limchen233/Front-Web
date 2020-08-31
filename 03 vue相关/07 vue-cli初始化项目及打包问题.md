@@ -19,7 +19,13 @@ npm i @vue/cli -g 新版本
 
 > **项目名不能有大写字母**
 >
-> vue-cli2，如果是用的 vue init -y 直接在项目根目录下初始化就好了，如果是用的 vue init webpack 项目名，则要按提示操作
+> 如果是用的 vue init -y 直接在项目根目录下初始化就好了，如果是用的 `vue init webpack 项目名`  或者是 `vue create 项目名`，则要按提示操作。在gitbash下，按上下箭头选择会无效。官方文档中解释：
+>
+> 如果你在 Windows 上通过 minTTY 使用 Git Bash，交互提示符并不工作。你必须通过 `winpty vue.cmd create hello-world` 启动这个命令。不过，如果你仍想使用 `vue create hello-world`，则可以通过在 `~/.bashrc` 文件中添加以下行来为命令添加别名。 `alias vue='winpty vue.cmd'` 你需要重新启动 Git Bash 终端会话以使更新后的 bashrc 文件生效。
+>
+> bashrc文件在安装git的目录中。比如：D:\Program Files\Git\etc
+>
+> 在`bashrc`最后加上`alias vue='winpty vue.cmd`就可以了。注意：=号两边不能有空格
 
 ### 3.启动项目
 
