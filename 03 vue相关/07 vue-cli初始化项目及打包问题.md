@@ -25,7 +25,7 @@ npm i @vue/cli -g 新版本
 >
 > bashrc文件在安装git的目录中。比如：D:\Program Files\Git\etc
 >
-> 在`bashrc`最后加上`alias vue='winpty vue.cmd`就可以了。注意：=号两边不能有空格
+> 在`bashrc`文件最后加上`alias vue='winpty vue.cmd`就可以了。注意：=号两边不能有空格
 
 ### 3.启动项目
 
