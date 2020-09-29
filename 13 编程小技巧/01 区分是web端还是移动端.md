@@ -10,9 +10,9 @@ Person.prototype.getName = function() {
     return this.name;
 }
 
-var p1 = new Person('jack', 10);
+var p = new Person('jack', 20);
 
-console.log('name' in p1); // true
+console.log('name' in p); // true
 ```
 
 `in`的这种特性最常用的场景之一，就是判断当前页面是否在移动端打开。
