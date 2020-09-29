@@ -1,4 +1,4 @@
-我们可以通过`in`来判断，一个对象是否拥有某一个属性/方法，无论是该属性/方法存在与实例对象还是原型对象
+我们可以通过`in`来判断，一个对象是否拥有某一个属性/方法：
 
 ```javascript
 function Person(name, age) {
@@ -21,5 +21,4 @@ console.log('name' in p1); // true
 isMobile = 'ontouchstart' in document;
 ```
 
-很多人喜欢用浏览器`UA`的方式来判断，但并不是很好的方式
-
+当然用浏览器`UA`的方式也可以判断，如果user-agent中包含Mobile，则为移动端，但`in`这种方式更简单、专业。
