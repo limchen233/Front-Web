@@ -12,7 +12,7 @@ function getTransform() {
     var transform = '',
         divStyle = document.createElement('div').style,
         // 可能涉及到的几种兼容性写法，通过循环找出浏览器识别的那一个
-        transformArr = ['transform', 'webkitTransform', 'MozTransform', 								'msTransform', 'OTransform'],
+        transformArr = ['transform', 'webkitTransform', 'MozTransform', 'msTransform', 'OTransform'],
 
         i = 0,
         len = transformArr.length;
