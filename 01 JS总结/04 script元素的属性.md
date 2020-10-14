@@ -1,8 +1,8 @@
-## ＜script＞元素的属性
+##　＜script＞元素的属性
 
 将`javascript`插入`html`的主要方法是使用`<script>`元素。这个元素是由网景公司创造出来的，主要有8个属性。
 
-- `async`：可选。表示应该立即开始下载脚本，但不能阻止其它页面动作，比如下载资源或等待其它脚本执行。即不会阻止`Dom`渲染，会和`DOM`渲染一起进行。如果有多个，不一定是按照顺序执行。
+- `async`：可选。表示应该立即开始下载脚本，但不能阻止其它页面动作，比如下载资源或等待其它脚本执行。即不会阻止`Dom`渲染，会和`DOM`渲染一起进行。如果有多个脚本，不一定是按照顺序执行。
 
 - `defer`：可选。表示在文档解析和显示完成后再执行脚本。只对外部脚本文件有效。如果有多个，会按照顺序执行。
 
@@ -39,3 +39,34 @@
    defer会根据声明的顺序执行。
 
 然后从实用角度来说呢，首先把所有脚本都丢到 `</body>` 之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。
+
+#### 扩展：
+
+针对早期浏览器不支持JavaScript的问题，需要一个页面优雅降级的处理方案。最终， <noscript> 元素出现，被用于给不支持JavaScript的浏览器提供替代内容。虽然如今的浏览器已经100%支持
+JavaScript，但对于禁用JavaScript的浏览器来说，这个元素仍然有它的用处。
+
+<noscript> 元素可以包含任何可以出现在 <body> 中的HTML元素， <script> 除外。在下列两种情况下，浏览器将显示包含在 <noscript> 中的内容：
+	浏览器不支持脚本；
+	浏览器对脚本的支持被关闭。
+
+任何一个条件被满足，包含在 <noscript> 中的内容就会被渲染。否则，浏览器不会渲染 <noscript> 中的内容。
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example HTML Page</title>
+<script ""defer="defer" src="example1.js">
+</script>
+<script ""defer="defer" src="example2.js">
+</script>
+</head>
+<body>
+<noscript>
+<p>This page requires a JavaScript-enabled browser.</p>
+</noscript>
+</body>
+</html>
+这个例子是在脚本不可用时让浏览器显示一段话。如果浏览器支持脚本，则用户永远不会看到它。
+```
+
