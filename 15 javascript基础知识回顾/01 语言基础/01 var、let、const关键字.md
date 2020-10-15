@@ -169,4 +169,48 @@ for (let i = 0; i < 5; ++i) {
 
 ### 三、`const`声明
 
-`const` 的行为与 `let` 基本相同，唯一一个重要的区别是用它声明变量时必须同时初始化变量，且尝试修改 `const` 声明的变量会导致运行时错误。
+`const` 的行为与 `let` 基本相同，唯一一个重要的区别是 **用它声明变量时必须同时初始化变量** ，且尝试修改 `const` 声明的变量会导致运行时错误。`const`定义的基础变量是常量，不能修改。
+
+```javascript
+const age = 20;
+age = 21;  // TypeError: 给常量赋值
+// const也不允许重复声明
+const name = 'Jack';
+const name = 'Mike';  // SyntaxError
+// const声明的作用域也是块
+const name2 = '小华';
+if (true) {
+	const name2 = 'Mike';
+}
+console.log(name2);  // 小华
+```
+
+`const` 声明的限制只适用于它指向的变量的引用。换句话说，如果 `const` 变量引用的是一个对象，那么修改这个对象内部的属性并不违反 `const` 的限制，此时这个对象是可以修改的。
+
+```javascript
+const person = {};
+person.name = '朵朵';
+```
+
+即使JavaScript引擎会为 for 循环中的 let 声明分别创建独立的变量实例，而且 `const` 变量跟 let 变量很相似，也不能用 `const`来声明迭代变量（因为迭代变量会自增）。
+
+不过，如果你只想用 `const` 声明一个不会被修改的 for 循环变量，那也是可以的。也就是说，每次迭代只是创建一个新变量。这对for-of 和 for-in 循环特别有意义：
+
+```javascript
+let i = 0;
+for (const j = 7; i < 5; ++i) {
+	console.log(j);
+}
+// 7, 7, 7, 7, 7
+
+for (const key in {a: 1, b: 2}) {
+	console.log(key);
+}
+// a, b
+
+for (const value of [1,2,3,4,5]) {
+	console.log(value);
+}
+// 1, 2, 3, 4, 5
+```
+
