@@ -128,3 +128,42 @@ let age = 20;
 console.log(window.age); // undefined
 ```
 
+3、for循环中的`let`声明 
+
+在 let 出现之前， for 循环定义的迭代变量会渗透到循环体外部：
+
+```javascript
+for(var i=0;i<5;i++){
+	// 执行逻辑
+}
+console.log(i); // 5
+```
+
+改成使用 let 之后，这个问题就消失了，因为迭代变量的作用域仅限于 for 循环块内部：
+
+```javascript
+for (let i = 0; i < 5; ++i) {
+	// 循环逻辑
+}
+console.log(i);  // ReferenceError: i没有定义
+```
+
+在使用 var 的时候，最常见的问题就是对迭代变量的奇特声明和修改：
+
+```javascript
+for (var i = 0; i < 5; ++i) {
+	setTimeout(() => console.log(i), 0)
+}
+// 你可能以为会输出0、1、2、3、4
+// 实际上会输出5、5、5、5、5
+```
+
+之所以会这样，是因为在退出循环时，迭代变量保存的是导致循环退出的值：5。在之后执行超时逻辑时，所有的 i 都是同一个变量，因而输出的都是同一个最终值。而在使用 let 声明迭代变量时，JavaScript引擎在后台会为每个迭代循环声明一个新的迭代变量。每个 `setTimeout` 引用的都是不同的变量实例，所以 `console.log` 输出的是我们期望的值，也就是循环执行过程中每个迭代变量的值。
+
+```javascript
+for (let i = 0; i < 5; ++i) {
+	setTimeout(() => console.log(i), 0)
+}
+// 会输出0、1、2、3、4
+```
+
