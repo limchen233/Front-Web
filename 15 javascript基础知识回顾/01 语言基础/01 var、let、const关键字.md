@@ -134,7 +134,7 @@ console.log(window.age); // undefined
 
 ```javascript
 for(var i=0;i<5;i++){
-	// 执行逻辑
+  // 执行逻辑
 }
 console.log(i); // 5
 ```
@@ -143,7 +143,7 @@ console.log(i); // 5
 
 ```javascript
 for (let i = 0; i < 5; ++i) {
-	// 循环逻辑
+  // 循环逻辑
 }
 console.log(i);  // ReferenceError: i没有定义
 ```
@@ -152,7 +152,7 @@ console.log(i);  // ReferenceError: i没有定义
 
 ```javascript
 for (var i = 0; i < 5; ++i) {
-	setTimeout(() => console.log(i), 0)
+  setTimeout(() => console.log(i), 0)
 }
 // 你可能以为会输出0、1、2、3、4
 // 实际上会输出5、5、5、5、5
@@ -162,8 +162,11 @@ for (var i = 0; i < 5; ++i) {
 
 ```javascript
 for (let i = 0; i < 5; ++i) {
-	setTimeout(() => console.log(i), 0)
+  setTimeout(() => console.log(i), 0)
 }
 // 会输出0、1、2、3、4
 ```
 
+### 三、`const`声明
+
+`const` 的行为与 `let` 基本相同，唯一一个重要的区别是用它声明变量时必须同时初始化变量，且尝试修改 `const` 声明的变量会导致运行时错误。
