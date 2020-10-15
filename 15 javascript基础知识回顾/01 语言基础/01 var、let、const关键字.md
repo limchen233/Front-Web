@@ -117,3 +117,14 @@ let age = 20;
 在解析代码时，`JavaScript`引擎也会注意出现在块后面的`let` 声明，只不过在此之前不能以任何方式来引用未声明的变量。在let 声明之前的执行瞬间被称为“暂时性死区”（temporal dead zone），在此阶段引用任何后面才声明的变量都会抛出`ReferenceError` 。
 
 2、全局声明
+
+`let`在全局作用域中声明的变量不会成为`window`对象的属性，但`var`声明的变量则会。
+
+```
+var name = '小明';
+console.log(window.name); // 小明
+
+let age = 20;
+console.log(window.age); // undefined
+```
+
