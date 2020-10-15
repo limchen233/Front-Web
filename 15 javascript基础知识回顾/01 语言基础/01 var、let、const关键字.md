@@ -1,4 +1,4 @@
-###  var关键字
+###  一、var关键字
 
 var是用来定义变量的操作符
 
@@ -27,9 +27,42 @@ message = 100; //合法，但不推荐
 
 ```
 function test(){
-  var message = 'hello world' //局部变量
+  var message = 'hello world'; //局部变量
 }
-test()
+test();
 console.log(message) //报错，ReferenceError: message is not defined
+```
+
+2、`var`的声明提升
+
+```
+function foo(){
+  console.log(age);
+  var age = 18;
+}
+foo(); // undefined
+```
+
+上面的函数并不会报错，这是因为**`var`声明的的变量会自动提升到函数作用域顶部**，等价于：
+
+```
+function foo(){
+  var age;
+  console.log(age);
+  age = 18;
+}
+foo(); // undefined
+```
+
+这就是所谓的“提升”（hoist），也就是把所有变量声明都拉到函数作用域的顶部。此外，反复多次使用 var 声明同一个变量也没有问题：
+
+```
+function foo() {
+  var name = '张三';
+  var name = '李四';
+  var name = '王五';
+  console.log(name);
+}
+foo(); // 王五
 ```
 
