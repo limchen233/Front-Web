@@ -180,7 +180,7 @@ const name = 'Mike';  // SyntaxError
 // const声明的作用域也是块
 const name2 = '小华';
 if (true) {
-	const name2 = 'Mike';
+  const name2 = 'Mike';
 }
 console.log(name2);  // 小华
 ```
@@ -199,18 +199,26 @@ person.name = '朵朵';
 ```javascript
 let i = 0;
 for (const j = 7; i < 5; ++i) {
-	console.log(j);
+  console.log(j);
 }
 // 7, 7, 7, 7, 7
 
 for (const key in {a: 1, b: 2}) {
-	console.log(key);
+  console.log(key);
 }
 // a, b
 
 for (const value of [1,2,3,4,5]) {
-	console.log(value);
+  console.log(value);
 }
 // 1, 2, 3, 4, 5
 ```
 
+### 四、总结
+
+1. 不使用 var
+ `let` 和 `const` 有助于提升代码质量，因为变量有了明确的作用域、声明位置，以及不变的值。
+
+2. `const` 优先， let 次之使用
+
+  `const` 声明可以让浏览器运行时强制保持变量不变，也可以让静态代码分析工具提前发现不合法的赋值操作。因此，很多开发者认为应该优先使用 `const` 来声明变量，只在提前知道未来会有修改时，再使用 let 。
