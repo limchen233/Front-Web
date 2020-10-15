@@ -43,7 +43,7 @@ function foo(){
 foo(); // undefined
 ```
 
-上面的函数并不会报错，这是因为**`var`声明的的变量会自动提升到函数作用域顶部**，等价于：
+上面的函数并不会报错，这是因为 **`var`声明的的变量会自动提升到函数作用域顶部** ，等价于：
 
 ```javascript
 function foo(){
@@ -68,7 +68,7 @@ foo(); // 王五
 
 ### 二、let声明
 
-`let` 跟 `var` 的作用差不多，但有着非常重要的区别。最明显的区别是，**`let` 声明的范围是块作用域，而 `var`声明的范围是函数作用域。**
+`let` 跟 `var` 的作用差不多，但有着非常重要的区别。最明显的区别是， **`let` 声明的范围是块作用域，而 `var`声明的范围是函数作用域。** 
 
 ```javascript
 if(true){
@@ -86,7 +86,7 @@ if(true){
 console.log(age); // ReferenceError: age没有定义
 ```
 
-在这里， `age`变量之所以不能在`if`块外部被引用，是因为它的作用域仅限于该块内部。**块作用域是函数作用域的子集** , 因此适用于 `var` 的作用域限制同样也适用于 `let` 。
+在这里， `age`变量之所以不能在`if`块外部被引用，是因为它的作用域仅限于该块内部。 **块作用域是函数作用域的子集**  , 因此适用于 `var` 的作用域限制同样也适用于 `let` 。
 
 `let`不允许同一个块作用域中重复声明：
 
@@ -102,3 +102,18 @@ let age;
 var age;  // SyntaxError
 ```
 
+1、暂时性死区
+
+`let`与`var`的另一个重要区别就是 **`let`声明的变量不会在作用域中被提升。**
+
+```javascript
+console.log(name); // undefined,name会被提升
+var name = 'jack';
+
+console.log(age); // ReferenceError:age没有定义
+let age = 20;
+```
+
+在解析代码时，`JavaScript`引擎也会注意出现在块后面的`let` 声明，只不过在此之前不能以任何方式来引用未声明的变量。在let 声明之前的执行瞬间被称为“暂时性死区”（temporal dead zone），在此阶段引用任何后面才声明的变量都会抛出`ReferenceError` 。
+
+2、全局声明
