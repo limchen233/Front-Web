@@ -4,8 +4,6 @@
 
 
 
-
-
 ![](https://github.com/limchen233/picgo/blob/master/img/image-20201117144434937.png?raw=true)
 
 ```
