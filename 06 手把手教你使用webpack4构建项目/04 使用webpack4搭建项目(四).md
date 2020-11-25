@@ -2,11 +2,15 @@
 
 #### webpack无法处理CSS文件,less文件,scss文件以及所有的url地址,所以webpack需要第三方工具加载器
 
-### （1）style-loader/css-loader
+### （1）style-loader和css-loader
 
 输入以下命令进行本地项目安装:
 
 `npm i style-loader css-loader -D`
+
+`css-loader`：用于加载`.css`文件，并且转换成`commonjs`对象
+
+`style-loader`：将样式通过`<style>`标签插入到head中
 
 安装好后要在webpack.config.js文件中配置:
 
