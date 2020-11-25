@@ -64,27 +64,27 @@ module.exports = {
   },
   
   // 插件配置
-	plugins:[],
+  plugins:[],
 	
 	//loader配置
 	module:{
-    rules:[
-      {
-        test:/.css$/, // 解析css文件
-        use:[ // loader调用是链式调用，从右向左，所以要先写style-loader
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test:/.css$/, //解析scss文件
-        use:[ // loader调用是链式调用，从右向左，所以要先写style-loader
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
+		rules:[
+		  {
+		    test:/.css$/, // 解析css文件
+		    use:[ // loader调用是链式调用，从右向左，所以要先写style-loader
+		      'style-loader',
+		      'css-loader'
+		    ]
+		  },
+		  {
+		    test:/.scss$/, //解析scss文件
+		    use:[ // loader调用是链式调用，从右向左，所以要先写style-loader
+		      'style-loader',
+		      'css-loader',
+		      'sass-loader'
+		    ]
+		  }
+		]
 	}
 }
 
