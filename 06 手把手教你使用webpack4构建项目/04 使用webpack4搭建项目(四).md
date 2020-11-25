@@ -14,6 +14,32 @@
 
 安装好后要在webpack.config.js文件中配置:
 
+```
+module.exports = {
+	// 打包输出文件
+  output:{
+    filename:'bundle.js'
+  },
+  
+  // 插件配置
+	plugins:[],
+	
+	//loader配置
+	module:{
+    rules:[
+      {
+        test:/.css$/,
+        use:[ // loader调用是链式调用，从右向左，所以要先写style-loader
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+	}
+}
+
+```
+
 ![](https://i.imgur.com/MPXlkoy.png)
 
 ### （2）less-loader/sass-loader(两个安装一个即可)
@@ -29,6 +55,40 @@
 `npm i sass-loader node-sass -D // node-sass为依赖包`
 
 安装好后要在webpack.config.js文件中配置:
+
+```
+module.exports = {
+	// 打包输出文件
+  output:{
+    filename:'bundle.js'
+  },
+  
+  // 插件配置
+	plugins:[],
+	
+	//loader配置
+	module:{
+    rules:[
+      {
+        test:/.css$/, // 解析css文件
+        use:[ // loader调用是链式调用，从右向左，所以要先写style-loader
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test:/.css$/, //解析scss文件
+        use:[ // loader调用是链式调用，从右向左，所以要先写style-loader
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
+    ]
+	}
+}
+
+```
 
 ![](https://i.imgur.com/PYVaOGx.png)
 
