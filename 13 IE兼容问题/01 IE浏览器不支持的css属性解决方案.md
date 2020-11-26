@@ -1,10 +1,10 @@
-### IE10以下浏览器不支持的css3属性
+### IE9及IE9以上浏览器不支持的CSS属性
 
-#### 1.flex
+**1.flex(CSS3)**
 
-用`float`属性代替
+用`float`属性代替或`poistion+transform`或者`table`布局
 
-#### 2.transform
+**2.transform**
 
 ```javascript
 // 获取当前浏览器支持的transform兼容写法
@@ -30,3 +30,9 @@ function getTransform() {
 ```
 
 如果返回的为空字符串，则表示当前浏览器并不支持`transform`，这个时候我们就需要使用`left`，`top`值来改变元素的位置。
+
+**3.inine-block**
+
+在IE下可改使用`display: inline`代替
+
+4.
