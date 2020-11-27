@@ -35,4 +35,11 @@ function getTransform() {
 
 在IE下可改使用`display: inline`代替
 
-4.
+**4.transform:rotate()**
+
+IE9中要想实现旋转的效果前面要加`-ms`前缀
+
+```
+-ms-transform: rotate(180deg);
+```
+
