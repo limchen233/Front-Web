@@ -215,6 +215,32 @@
 - vuex存储在内存，localStorage则以文件的方式存储在本地。localStorage和sessionStorage只能存储字符串类型，对于复杂的对象可以使用ECMAScript提供的JSON.stringify(obj)将其转成字符串，取出来时使用 JSON.parse(str)重新转成对象。
 - vuex是响应式的
 
+#### 19.vue中怎么获取DOM元素？
+
+a. 可以使用原生JS的DOM方法
+
+```
+document.getElementById('id') // 返回一个元素，因为id是不能重复的
+document.getElementsByClassName('className') // 返回一个集合
+```
+
+b. 使用`ref`语法
+
+```html
+<div>
+	<div class="inner" ref="inner"></div>
+</div>
+
+```
+
+此时，使用`this.$refs.inner`就可以获取到含有属性`ref`的`div`元素
+
+> 注意：ref作用于普通元素——得到`dom`节点；ref作用于子组件——得到组件实例，可使用组件所有方法
+
+
+
+
+
 ## `Vue`相关原理分析
 
 #### 1.`vue`的响应式原理
@@ -260,3 +286,5 @@
 1.`vue`中设置路由懒加载
 
 2.图片压缩、css压缩、js压缩
+
+3.SSR(首屏渲染)
