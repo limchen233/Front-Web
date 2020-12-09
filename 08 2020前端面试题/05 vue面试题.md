@@ -67,6 +67,8 @@
 
 在 `Vue` 中，每次切换组件时，都会重新渲染。如果有多个组件切换，又想让它们保持原来的状态，避免重新渲染，这个时候就可以使用 `keep-alive`。 `keep-alive` 可以使被包含的组件保留状态，或避免重新渲染。
 
+> 当引入`keep-alive` 的时候，页面第一次进入，钩子的触发顺序created-> mounted-> activated，退出时触发deactivated。当再次进入（前进或者后退）时，只触发activated。`keep-alive` 之后页面模板第一次初始化解析变成HTML片段后，再次进入就不在重新解析而是读取内存中的数据，即只有当数据变化时，才使用`VirtualDOM`进行`diff`更新。故页面进入的数据获取应该在activated中也放一份。数据下载完毕手动操作DOM的部分也应该在activated中执行才会生效。所以，应该activated中留一份数据获取的代码，或者不要created部分，直接将created中的代码转移到activated中。
+
 #### 4.`$route`和`$router`的区别？
 
 `$route` 是当前路由信息对象，包括`path`，`params`，`hash`，`query`，`fullPath`，`matched`，`name` 等路由信息参数。
@@ -186,7 +188,7 @@
   >
   > action：`action`提交的是mutation，而不是直接更改状态。action可以包含异步操作。
   >
-  > ​		可以通过context.commit()直接提交mutation，也可以通过			       	    store.dispatch()来触发action以提交mutation。
+  > 可以通过`context.commit()`直接提交mutation，也可以通过`store.dispatch()`来触发action以提交mutation。
   >
   > getter：相当于`store`的计算属性，getter的返回值会根据它的依赖被缓存起来，且只有    		当它的依赖发生了变化才会被重新计算。
   >
@@ -200,24 +202,24 @@
 
 #### 15.有三个组件共享了`vuex`中`state`的状态，其中一个组件改变了状态，另外两个组件不改变怎么实现？
 
-- 可以用深拷贝在需要改变的组件里拷贝一份源对象，然后重新赋值。let copy = JSON.parse(JSON.stringfy(sourceObject))
+- 可以用深拷贝在需要改变的组件里拷贝一份源对象，然后重新赋值。`let copy = JSON.parse(JSON.stringfy(sourceObject))`
 
-#### 16.为什么vuex的mutation必须是同步的？
+#### 16.为什么`vuex`的`mutation`必须是同步的？
 
-- 同步的意义在于每个mutation执行完成后都会对应到一个新的状态变更，这样devtools就可以打个快照存下来，我们可以更好的调试。如果mutation支持异步操作，就没有办法知道状态是何时更新的，无法很好的进行状态的追踪，给调试带来困难。
+- 同步的意义在于每个mutation执行完成后都会对应到一个新的状态变更，这样`devtools`就可以打个快照存下来，我们可以更好的调试。如果mutation支持异步操作，就没有办法知道状态是何时更新的，无法很好的进行状态的追踪，给调试带来困难。
 
 #### 17.子组件为什么不能修改父组件传递的prop？
 
-- vue提倡单向数据流，即父级props的更新会流向子组件，但是反过来则不行。这是防止意外的改变父组件状态，使得应用难以理解。
+- `vue`提倡单向数据流，即父级props的更新会流向子组件，但是反过来则不行。这是防止意外的改变父组件状态，使得应用难以理解。
 
-#### 18.localStorage与vuex的区别？
+#### 18.`localStorage`与`vuex`的区别？
 
-- vuex存储在内存，localStorage则以文件的方式存储在本地。localStorage和sessionStorage只能存储字符串类型，对于复杂的对象可以使用ECMAScript提供的JSON.stringify(obj)将其转成字符串，取出来时使用 JSON.parse(str)重新转成对象。
-- vuex是响应式的
+- `vuex`存储在内存，`localStorage`则以文件的方式存储在本地。`localStorage`和`sessionStorage`只能存储字符串类型，对于复杂的对象可以使用`ECMAScript`提供的`JSON.stringify(obj)`将其转成字符串，取出来时使用 `JSON.parse(str)`重新转成对象。
+- `vuex`是响应式的
 
-#### 19.vue中怎么获取DOM元素？
+#### 19.`vue`中怎么获取DOM元素？
 
-a. 可以使用原生JS的DOM方法
+a. 可以使用原生`JS`的DOM方法
 
 ```
 document.getElementById('id') // 返回一个元素，因为id是不能重复的
@@ -281,10 +283,10 @@ b. 使用`ref`语法
 
   Virtual DOM的优势不在于单次的操作，而是在大量、频繁的数据更新下，能够对视图进行合理、高效的更新。
 
-## vue项目优化
+## `vue`项目优化
 
 1.`vue`中设置路由懒加载
 
-2.图片压缩、css压缩、js压缩
+2.图片压缩、`css`压缩、`js`压缩
 
-3.SSR(首屏渲染)
+3.`SSR`(首屏渲染)
