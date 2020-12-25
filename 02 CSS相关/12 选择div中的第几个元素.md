@@ -1,0 +1,93 @@
+`:nth-child(an+b)`这个`CSS`伪类首先找到所有当前元素的兄弟元素，然后按照位置先后顺序从1开始排序，选择的结果为`CSS`伪类`:nth-child`括号中表达式`（an+b）`匹配到的元素集合`（n=0，1，2，3...）`
+
+- `0n+3`或简单的`3`匹配第三个元素。
+- `1n+0` 或简单的 `n` 匹配每个元素。
+- `2n+0` 或简单的 `2n` 匹配位置为 2、4、6、8...的元素（n=0时，2n+0=0，第0个元素不存在，因为是从1开始排序)。你可以使用关键字 **`even`** 来替换此表达式。
+- `2n+1` 匹配位置为 1、3、5、7...的元素。你可以使用关键字 **`odd`** 来替换此表达式。
+- `3n+4` 匹配位置为 4、7、10、13...的元素。
+- `a` 和 `b` 都必须为整数，并且元素的第一个子元素的下标为 1。换言之就是，该伪类匹配所有下标在集合 { an + b; n = 0, 1, 2, ...} 中的子元素。另外需要特别注意的是，`an` 必须写在 `b` 的前面，不能写成 `b+an` 的形式。
+
+例：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <style>
+    .parent p:nth-child(1){
+      color: red;
+    }
+    .parent p:nth-child(2){
+      color: blue;
+    }
+    .parent p:nth-child(3){
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <p>我是p1</p>
+    <p>我是p2</p>
+    <p>我是p3</p>
+    <p>我是p4</p>
+    <p>我是p5</p>
+  </div>
+</body>
+</html>
+```
+
+![](https://github.com/limchen233/picgo/blob/master/img/image-20201225104423560.png?raw=true)
+
+```html
+<style>
+  /* 奇数 */
+  .parent p:nth-child(2n+1){
+     color: red;
+  }
+  /* 或 */
+  /* .parent p:nth-child(odd){
+     color: red;
+  } */
+  
+</style>
+<body>
+ 	<div class="parent">
+    <p>我是p1</p>
+    <p>我是p2</p>
+    <p>我是p3</p>
+    <p>我是p4</p>
+    <p>我是p5</p>
+  </div>
+</body>
+```
+
+![](https://github.com/limchen233/picgo/blob/master/img/image-20201225104957132.png?raw=true)
+
+```html
+<style>
+  /* 偶数 */
+  .parent p:nth-child(2){
+     color: blue;
+  }
+  /* 或 */
+  /* .parent p:nth-child(even){
+     color: blue;
+  } */
+  
+</style>
+<body>
+ 	<div class="parent">
+    <p>我是p1</p>
+    <p>我是p2</p>
+    <p>我是p3</p>
+    <p>我是p4</p>
+    <p>我是p5</p>
+  </div>
+</body>
+```
+
+![](https://github.com/limchen233/picgo/blob/master/img/image-20201225105135017.png?raw=true)
