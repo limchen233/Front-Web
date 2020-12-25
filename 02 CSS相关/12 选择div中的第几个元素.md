@@ -1,4 +1,6 @@
-`:nth-child(an+b)`这个`CSS`伪类首先找到所有当前元素的兄弟元素，然后按照位置先后顺序从1开始排序，选择的结果为`CSS`伪类`:nth-child`括号中表达式`（an+b）`匹配到的元素集合`（n=0，1，2，3...）`
+#### `:nth-child(an+b)`
+
+这个`CSS`伪类首先找到所有当前元素的兄弟元素，然后按照位置先后顺序从1开始排序，选择的结果为`CSS`伪类`:nth-child`括号中表达式`（an+b）`匹配到的元素集合`（n=0，1，2，3...）`
 
 - `0n+3`或简单的`3`匹配第三个元素。
 - `1n+0` 或简单的 `n` 匹配每个元素。
@@ -55,7 +57,7 @@
   
 </style>
 <body>
- 	<div class="parent">
+	<div class="parent">
     <p>我是p1</p>
     <p>我是p2</p>
     <p>我是p3</p>
@@ -80,7 +82,7 @@
   
 </style>
 <body>
- 	<div class="parent">
+	<div class="parent">
     <p>我是p1</p>
     <p>我是p2</p>
     <p>我是p3</p>
@@ -91,3 +93,36 @@
 ```
 
 ![](https://github.com/limchen233/picgo/blob/master/img/image-20201225105135017.png?raw=true)
+
+#### **`:nth-last-child()`** 
+
+这个`css`伪类从兄弟节点中从后往前匹配处于某些位置的元素。
+
+> **注意:** 这个伪类和 [`:nth-child`] 基本一致, 但它是从**`结尾`**计数, 而不是从开始计数。
+
+例：获取下面`div`元素的倒数第二个`p`
+
+```html
+<style>
+  /* 倒数第二个 */
+  .parent p:nth-last-child(2){
+     color: blue;
+  }
+  /* 或 */
+  /* .parent p:nth-child(3){
+    color: blue;
+  } */
+  
+</style>
+<body>
+	<div class="parent">
+    <p>我是p1</p>
+    <p>我是p2</p>
+    <p>我是p3</p>
+    <p>我是p4</p>
+  </div>
+</body>
+```
+
+![](https://github.com/limchen233/picgo/blob/master/img/image-20201225110914564.png?raw=true)
+
