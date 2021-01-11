@@ -39,14 +39,25 @@
 ### 解决方法二：
 > 1、找到项目根目录下的package.json文件并打开，找到"scripts":{}这一段，在其中添加"dev": 
 > "webpack"这一行，效果如下：
-> 
-	"scripts": {
-    	"test": "echo \"Error: no test specified\" && exit 1",
-    	"dev":"webpack"
-  	},
+>
+> "scripts": {
+> 	"test": "echo \"Error: no test specified\" && exit 1",
+> 	"dev":"webpack"
+> 	},
 > 2、命令行中输入“npm run dev”打包命令，顺利执行webpack命令（此时会报一个警告和另外一个错，下面再说）
-> 
-### 注意：此时直接运行 webpack 命令还是不行的，只能用 npm run dev。这是因为局部安装的webpack并不会在系统环境变量里面注册，所以在控制台里输入webpack找不到命令；npm run dev 系统可以找到注册在系统中的npm,自然可以运行。可能全局安装webpack也是一种解决方法（我不想全局安装，所以没有试）。
+>
+> 注意：此时直接运行 webpack 命令还是不行的，只能用 npm run dev。这是因为在项目内部安装的webpack并不会在系统环境变量里面注册，所以在控制台里输入webpack找不到命令；npm run dev 系统可以找到注册在系统中的npm,自然可以运行。
+
+
+### 解决方法三：全局安装webpack
+
+全局安装虽然可以解决问题，但有一定的局限性。
+
+> 全局安装的局限性：
+>
+> 1、在与他人进行项目协作的时候，由于每个人系统中的webpack版本不同，可能会导致输出结果不一致。
+>
+> 2、部分依赖于webpack的插件会调用项目中webpack的内部模块，这种情况下仍然需要在项目本地安装webpack，而如果全局和本地都有容易造成混淆。
 
 ## 三、配置mode和入口、出口文件
 
