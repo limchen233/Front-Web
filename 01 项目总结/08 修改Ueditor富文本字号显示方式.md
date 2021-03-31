@@ -35,3 +35,30 @@ fontsize:[
 ]
 ```
 
+然后继续搜索`editorui.fontsize`，定位到如下代码：
+
+![](https://img-blog.csdnimg.cn/20210331173548337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW5saW04Nw==,size_16,color_FFFFFF,t_70)
+
+修改成如下代码：
+
+![](https://img-blog.csdnimg.cn/20210331173658926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW5saW04Nw==,size_16,color_FFFFFF,t_70)
+
+修改后代码：
+
+```
+for (var i = 0; i < list.length; i++) {
+    var sizename = list[i].name;
+    var size = list[i].val + 'px';
+    items.push({
+         label:sizename,
+         value:size,
+         theme:editor.options.theme,
+         renderLabelHtml:function () {
+              return '<div class="edui-label %%-label" style="line-height:2;font-size:' +
+              this.value + '">' + (this.label || '') + '</div>';
+         }
+    });
+}
+
+```
+
