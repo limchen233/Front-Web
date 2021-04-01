@@ -9,6 +9,8 @@
 
 ![](https://raw.githubusercontent.com/limchen233/images/master/img/HkY0sPq.png)
 
+> 更新：如果是webpack5，`dev`要改成`"dev":"webpack serve"`
+
 然后在控制台运行 npm run dev,打包成功，如图：
 
 ![](https://i.imgur.com/I9SY0NN.png)
