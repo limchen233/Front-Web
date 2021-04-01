@@ -77,21 +77,17 @@
 
 提示找不到入口文件
 
-之前在 webpack3 中我们是在 webpack.config.js 中配置了一个入口文件。
+那我们就配置了入口文件：
 
-![](https://i.imgur.com/Atz1Qjx.png)
+![image-20210401101051259](https://github.com/limchen233/picgo/blob/master/img/image-20210401101051259.png?raw=true)
 
-
-
-webpack4中有一个很大的特性，就是约定大于配置（目的是压缩体积）。它约定的默认入口文件是src下的index.js,所以我们在这里不用配置（也可以选择配置，会把默认的覆盖），直接把项目src目录下的main.js改为index.js就可以了。然后运行 npx webpack
+> 注：webpack4默认配置：**默认打包入口文件：src/index.js**，**默认打包输出文件：dist/main.js**
+>
+> webpack4中有一个很大的特性，就是约定大于配置（目的是压缩体积）。它约定的默认入口文件是src下的index.js,所以我们在这里不用配置（也可以选择配置，会把默认的覆盖）。这里我们使用`main.js`覆盖。出口文件名称不指定就是默认的`main.js`。然后运行 `npx webpack`。
 
 ![](https://i.imgur.com/2wOCUsf.png)
 
 成功运行了！！！（且打包成功后 dist 下出现了一个 main.js 文件）
-
-### 默认打包入口文件：src/index.js
-
-### 默认打包输出文件：dist/main.js
 
 在 index.html 中手动引入打包后的文件，控制台就可以输出ok了。
 
