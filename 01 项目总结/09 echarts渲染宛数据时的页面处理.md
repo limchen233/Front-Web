@@ -21,3 +21,19 @@ var option = {
 效果如下：
 
 ![](https://img-blog.csdnimg.cn/20210408135930811.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW5saW04Nw==,size_16,color_FFFFFF,t_70)
+
+还可以使用`showLoading()`来展示：
+
+```
+if(companies.length === 0) {
+    myChart.showLoading({
+       	text: '暂无数据',
+        fontSize: 18,
+        color: 'transparent', // loading颜色，设置成透明或白色，不然会显示loading状态
+        textColor: '#ccc',// 文字颜色
+        maskColor: 'rgba(255, 255, 255, 0.2)' // 背景色
+    })
+ }
+
+```
+
