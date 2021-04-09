@@ -86,3 +86,42 @@ setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
 > 在大多数浏览器中，包括 Chrome 和 Firefox，在显示 `alert/confirm/prompt` 弹窗时，内部的定时器仍旧会继续“嘀嗒”。
 >
 > 所以，在运行上面的代码时，如果在一定时间内没有关掉 `alert` 弹窗，那么在你关闭弹窗后，下一个 `alert` 会立即显示。两次 `alert` 之间的时间间隔将小于 2 秒。
+>
+> **使用 `setInterval` 时，`func` 函数的实际调用间隔要比代码中设定的时间间隔要短！**
+>
+> 因为 `func` 的执行所花费的时间“消耗”了一部分间隔时间。
+
+周期性调度有两种方式。一种是使用 `setInterval`，另外一种就是嵌套的 `setTimeout`。
+
+我们可以使用嵌套的`setTimeout`来模拟`setInterval`
+
+```javascript
+/**
+let timerId = setInterval(() => alert('tick'), 2000);
+*/
+
+let timerId = setTimeout(function tick() {
+  alert('tick');
+  timerId = setTimeout(tick, 2000); // (*)
+}, 2000);
+```
+
+上面这个 `setTimeout` 在当前这一次函数执行完时 ，立即调度下一次调用。
+
+嵌套的 `setTimeout` 要比 `setInterval` 灵活得多。采用这种方式可以根据当前执行结果来调度下一次调用，因此下一次调用可以与当前这一次不同。
+
+例如，我们要实现一个服务（server），每间隔 5 秒向服务器发送一个数据请求，但如果服务器过载了，那么就要降低请求频率，比如将间隔增加到 10、20、40 秒等。
+
+```javascript
+let delay = 5000;
+let timerId = setTimeout(function request() {
+  ...发送请求...
+  if (request failed due to server overload) {
+    // 下一次执行的间隔是当前的 2 倍
+    delay *= 2;
+  }
+  timerId = setTimeout(request, delay);
+}, delay);
+```
+
+**注意：嵌套的 `setTimeout` 能够精确地设置两次执行之间的延时，也就是间隔相同；而 `setInterval` 却不能。**
