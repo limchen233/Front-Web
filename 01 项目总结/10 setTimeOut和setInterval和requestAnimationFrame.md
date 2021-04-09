@@ -153,3 +153,57 @@ function draw() {
 draw();
 ```
 
+这个想法是要定义一个函数，在其中更新动画 (例如，移动精灵，更新乐谱，刷新数据等)，然后调用它来开始这个过程。在函数的末尾，以 `requestAnimationFrame()` 传递的函数作为参数进行调用，这指示浏览器在下一次显示重新绘制时再次调用该函数。然后这个操作连续运行， 因为`requestAnimationFrame()` 是递归调用的。
+
+> **注意**: 如果要执行某种简单的常规DOM动画, CSS 动画可能更快，因为它们是由浏览器的内部代码计算而不是JavaScript直接计算的。但是，如果您正在做一些更复杂的事情，并且涉及到在DOM中不能直接访问的对象(such as [2D Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) objects), `requestAnimationFrame()` 在大多数情况下是更好的选择。
+
+动画的平滑度直接取决于动画的帧速率，并以每秒帧数（fps）为单位进行测量。这个数字越高，动画看起来就越平滑。
+
+由于大多数屏幕的刷新率为60Hz，因此在使用web浏览器时，可以达到的最快帧速率是每秒60帧（FPS）。然而，更多的帧意味着更多的处理，这通常会导致卡顿和跳跃-也称为丢帧或跳帧。
+
+如果您有一个刷新率为60Hz的显示器，并且希望达到60fps，则大约有16.7毫秒（1000/60）来执行动画代码来渲染每个帧。这提醒我们，我们需要注意每次通过动画循环时要运行的代码量。
+
+`requestAnimationFrame()` 总是试图尽可能接近60帧/秒的值，当然有时这是不可能的如果你有一个非常复杂的动画，你是在一个缓慢的计算机上运行它，你的帧速率将更少。`requestAnimationFrame()` 会尽其所能利用现有资源提升帧速率。
+
+我们来看一下`requestAnimationFrame()` 方法与前面介绍的其他方法的区别.。下面让我们看一下代码:
+
+```javascript
+function draw() {
+   // Drawing code goes here
+   requestAnimationFrame(draw);
+}
+
+draw();
+```
+
+使用`setInterval()`:
+
+```javascript
+function draw() {
+   // Drawing code goes here
+}
+
+setInterval(draw, 17);
+```
+
+如前所述，我们没有为`requestAnimationFrame()`;指定时间间隔；它只是在当前条件下尽可能快速平稳地运行它。如果动画由于某些原因而处于屏幕外浏览器也不会浪费时间运行它。
+
+ 另一方面`setInterval()`需要指定间隔。我们通过公式1000毫秒/60Hz得出17的最终值，然后将其四舍五入。四舍五入是一个好主意，浏览器可能会尝试运行动画的速度超过60fps，它不会对动画的平滑度有任何影响。如前所述，60Hz是标准刷新率。
+
+**取消requestAnimationFrame**
+
+`requestAnimationFrame()`可用与之对应的`cancelAnimationFrame()`方法“撤销”（不同于“set…”类方法的“清除”，此处更接近“撤销”之意）。
+
+该方法以`requestAnimationFrame()`的返回值为参数，此处我们将该返回值存在变量 `raf` 中：
+
+```javascript
+cancelAnimationFrame(raf);
+```
+
+
+
+## 浏览器支持
+
+`setTimeout、setInterval`：世面上的浏览器几乎都支持
+
+`requestAnimationFrame`：大部分现代浏览器支持，谷歌10~92，firfox4~89，Edge，IE10及以上
