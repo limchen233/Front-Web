@@ -63,3 +63,9 @@ clearTimeout(timerId)
 
 ## setInerval
 
+`setInterval` 方法和 `setTimeout` 的语法相同：
+
+```javascript
+let timerId = setInterval(func|code, [delay], [arg1], [arg2], ...)
+```
+
