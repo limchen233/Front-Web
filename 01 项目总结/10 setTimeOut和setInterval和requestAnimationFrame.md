@@ -217,4 +217,4 @@ cancelAnimationFrame(raf);
 
 `setTimeout、setInterval`：世面上的浏览器几乎都支持
 
-`requestAnimationFrame`：大部分现代浏览器支持，谷歌10~92，firfox4~89，Edge，IE10及以上
+`requestAnimationFrame`：大部分现代浏览器支持，谷歌10--92，firfox4--89，Edge，IE10及以上
