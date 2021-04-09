@@ -124,7 +124,15 @@ let timerId = setTimeout(function request() {
 }, delay);
 ```
 
-**注意：嵌套的 `setTimeout` 能够精确地设置两次执行之间的延时，也就是间隔相同；而 `setInterval` 却不能。**
+**嵌套的`setTimeout`和`setInterval`相比：**
+
+**嵌套的 `setTimeout` 能够精确地设置两次执行之间的延时，也就是间隔相同；而 `setInterval` 却不能。**
+
+> 这儿有一种特殊的用法：`setTimeout(func, 0)`，或者仅仅是 `setTimeout(func)`。
+>
+> 这样调度可以让 `func` 尽快执行。但是只有在当前正在执行的脚本执行完成后，调度程序才会调用它。
+>
+> 在浏览器环境下，嵌套定时器的运行频率是受限制的。根据 [HTML5 标准](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers) 所讲：“经过 5 重嵌套定时器之后，时间间隔被强制设定为至少 4 毫秒”。
 
 
 
