@@ -69,3 +69,17 @@ clearTimeout(timerId)
 let timerId = setInterval(func|code, [delay], [arg1], [arg2], ...)
 ```
 
+所有参数的意义也是相同的。不过与 `setTimeout` 只执行一次不同，`setInterval` 是每间隔给定的时间周期性执行。
+
+想要阻止后续调用，我们需要调用 `clearInterval(timerId)`。
+
+下面的例子将每间隔 2 秒就会输出一条消息。5 秒之后，输出停止：
+
+```javascript
+// 每 2 秒重复一次
+let timerId = setInterval(() => alert('tick'), 2000);
+
+// 5 秒之后停止
+setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
+```
+
