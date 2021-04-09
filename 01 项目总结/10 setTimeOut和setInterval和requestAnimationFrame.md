@@ -83,3 +83,6 @@ let timerId = setInterval(() => alert('tick'), 2000);
 setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
 ```
 
+> 在大多数浏览器中，包括 Chrome 和 Firefox，在显示 `alert/confirm/prompt` 弹窗时，内部的定时器仍旧会继续“嘀嗒”。
+>
+> 所以，在运行上面的代码时，如果在一定时间内没有关掉 `alert` 弹窗，那么在你关闭弹窗后，下一个 `alert` 会立即显示。两次 `alert` 之间的时间间隔将小于 2 秒。
