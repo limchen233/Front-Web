@@ -131,3 +131,17 @@ let timerId = setTimeout(function request() {
 ## requestAnimationFrame
 
 `requestAnimationFrame()`是一个专门的循环函数，旨在浏览器中高效运行动画。它基本上是现代版本的`setInterval()` —— 它在浏览器重新加载显示内容之前执行指定的代码块，从而允许动画以适当的帧速率运行，不管其运行的环境如何。
+
+它是针对`setInterval()` 遇到的问题创建的，比如 `setInterval()`并不是针对设备优化的帧率运行，有时会丢帧。还有即使该选项卡不是活动的选项卡或动画滚出页面等问题 。
+
+该方法将重新加载页面之前要调用的回调函数作为参数。比如：
+
+```javascript
+function draw() {
+  // Drawing code goes here
+  requestAnimationFrame(draw);
+}
+
+draw();
+```
+
