@@ -59,3 +59,7 @@ let timerId = setTimeout(...)
 clearTimeout(timerId)
 ```
 
+
+
+## setInerval
+
