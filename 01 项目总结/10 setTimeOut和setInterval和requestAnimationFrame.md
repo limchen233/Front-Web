@@ -48,9 +48,9 @@ setTimeout(function(){alert('hello')},1000)
 setTimeout(() => {alert('hello')},1000)
 ```
 
-**取消定时器**
+**取消调度（定时器）**
 
-`setTimeout`在调用时会返回一个`定时器标识符`，也就是上方的`timerId`，我们可以使用`clearTimeout`，并将标识符作为参数来取消执行。
+`setTimeout`在调用时会返回一个`标识符`，也就是上方的`timerId`，我们可以使用`clearTimeout`，并将标识符作为参数来取消执行。
 
 取消定时器的语法：
 
@@ -133,6 +133,17 @@ let timerId = setTimeout(function request() {
 > 这样调度可以让 `func` 尽快执行。但是只有在当前正在执行的脚本执行完成后，调度程序才会调用它。
 >
 > 在浏览器环境下，嵌套定时器的运行频率是受限制的。根据 [HTML5 标准](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers) 所讲：“经过 5 重嵌套定时器之后，时间间隔被强制设定为至少 4 毫秒”。
+>
+> 当一个函数传入 `setInterval/setTimeout` 时，将为其创建一个内部引用，并保存在调度程序中。这样，即使这个函数没有其他引用，也能防止垃圾回收器（GC）将其回收。
+>
+> ```javascript
+> // 在调度程序调用这个函数之前，这个函数将一直存在于内存中
+> setTimeout(function() {...}, 100);
+> ```
+>
+> 对于 `setInterval`，传入的函数也是一直存在于内存中，直到 `clearInterval` 被调用。
+>
+> 这里还要提到一个副作用。如果函数引用了外部变量（闭包），那么只要这个函数还存在，外部变量也会随之存在。它们可能比函数本身占用更多的内存。因此，当我们不再需要调度函数时，最好取消它，即使这是个（占用内存）很小的函数。
 
 
 
