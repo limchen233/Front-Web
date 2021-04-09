@@ -125,3 +125,7 @@ let timerId = setTimeout(function request() {
 ```
 
 **注意：嵌套的 `setTimeout` 能够精确地设置两次执行之间的延时，也就是间隔相同；而 `setInterval` 却不能。**
+
+
+
+## requestAnimationFrame
