@@ -3,7 +3,7 @@
 如果我们修改了 index.js 中的内容，要重新手动运行 npx webpack 才能更新数据，这样就很繁琐。我们想实现一修改内容，webpack打包命令就自动运行。要实现这个功能需要安装 webpack-dev-server
 
 	npm i webpack-dev-server --save-dev 
-	注意： --save-dev参数是将webpack-dev-server作为工程的devDependencies(开发环境依赖)记录在package.json中。这样做是因为webpack-dev-server仅仅在本地开发时才会用到，在生产环境中并不需要它，所以放在devDependencies中是比较恰当的。
+	注意： --save-dev(简写-D)参数是将webpack-dev-server作为工程的devDependencies(开发环境依赖)记录在package.json中。这样做是因为webpack-dev-server仅仅在本地开发时才会用到（运行打包），在生产环境中并不需要它，所以放在devDependencies中是比较恰当的。
 
 安装成功后需要配置。打开 package.json 文件，在 scripts 添加 "dev":"webpack-dev-server",如图:
 
