@@ -81,3 +81,45 @@ let stop = Date.now()
 let result = stop - start
 ```
 
+
+
+**日期的格式化方法**
+
+`Date` 类型有几个专门用于格式化日期的方法，它们都会返回字符串：
+
+```javascript
+toDateString() // 显示日期中的周几、月、日、年（格式特定于实现）
+toTimeString() // 显示日期中的时、分、秒和时区（格式特定于实现）
+toLocaleDateString() // 显示日期中的周几、月、日、年（格式特定于实现和地区）
+toLocaleTimeString() // 显示日期中的时、分、秒（格式特定于实现）
+toUTCString() // 显示完整的UTC日期（格式特定于实现）
+
+```
+
+> 这些方法的输出与 `toLocaleString()` 和 `toString()` 一样，会因浏览器而异。因此不能用于在用户界面上一致地显示日期。
+
+
+
+**日期/时间组件方法**
+
+ `Date`类型常用的方法（见下表）直接涉及取得或设置日期值的特定部分。注意表中`UTC`日期，指的是没有时区偏移（将日期转换为GMT）时的日期。
+
+|           方法           |                        说明                        |
+| :----------------------: | :------------------------------------------------: |
+|       `getTime()`        |       返回日期的毫秒表示；与`valueOf()` 相同       |
+| `setTime( milliseconds)` |        设置日期的毫秒表示，从而修改整个日期        |
+|     `getFullYear()`      |          返回4位数年份（即2021而不是21）           |
+|    `getUTCFullYear()`    |              返回`UTC`日期的4位数年份              |
+|  `setFullYear( year )`   |        设置日期的年份（ year 必须是4位数）         |
+| `setUTCFullYear( year)`  |        设置日期的年份（ year 必须是4位数）         |
+|       `getMonth()`       |  返回日期的月份（从0开始，0表示1月，11表示12月）   |
+|    `setMonth( month)`    | 设置日期的月份（ month 为大于0的数值，大于11加年） |
+|       `getDate()`        |               返回日期中的日（1~31）               |
+|    `setDate( date )`     |  设置日期中的日（如果 date 大于该月天数，则加月）  |
+|        `getDay()`        |  返回日期中表示周几的数值（0表示周日，6表示周六）  |
+|       `getHours()`       |               返回日期中的时（0~23）               |
+|      `getMinutes()`      |               返回日期中的分（0~59）               |
+|      `getSeconds()`      |               返回日期中的秒（0~59）               |
+|   `getMilliseconds()`    |                  返回日期中的毫秒                  |
+
+除了`setTime、getTime`，其它方法都有相对应的获取`UTC`时间和设置对应属性的方法，表中只举例了`getUTCFullYear()`和`setUTCFullYear()`。
