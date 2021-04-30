@@ -68,3 +68,28 @@ console.log(1 + '1');
 ```
 
 TypeScript 是完全兼容 JavaScript 的，它不会修改 JavaScript 运行时的特性，所以**它们都是弱类型**。
+
+
+
+### 安装Typescript
+
+```javascript
+npm i typescript -g // 全局安装
+```
+
+这条命令会在全局环境下安装`tsc`命令，安装好后我们就可以在任何地方执行`tsc`命令了。
+
+我们创建一个typescript文件，把js文件的后缀改为ts即可，比如`hello.ts`。见`demo/hello.ts`
+
+在命令窗口输入`tsc hello.ts`即可执行`ts`文件。执行成功会生成一个编译好的js文件`hello.js`。
+
+![](https://github.com/limchen233/picgo/blob/master/img/image-20210430112423809.png?raw=true)
+
+执行成功后，`ts`文件可能会报错：
+
+<img src="https://github.com/limchen233/picgo/blob/master/img/image-20210430112631940.png?raw=true" style="zoom:80%;" />
+
+在项目根路径创建一个`tsconfig.json`文件就好了。（空文件也行）
+
+![](https://github.com/limchen233/picgo/blob/master/img/image-20210430113308875.png?raw=true)
+
