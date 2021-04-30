@@ -90,7 +90,7 @@ let user = 'Tom';
 console.log(sayHello(user));
 ```
 
-在命令窗口输入`tsc hello.ts`即可执行`ts`文件。执行成功会生成一个编译好的js文件`hello.js`。
+在`demo`文件夹下的命令窗口输入`tsc hello.ts`即可执行`ts`文件。（执行js文件用`node hello.js`）执行成功会生成一个编译好的js文件`hello.js`。
 
 ```typescript
 function sayHello(person) {
