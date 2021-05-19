@@ -10,7 +10,7 @@
 
 ![image-20210519173422799](https://github.com/limchen233/picgo/blob/master/img/image-20210519173422799.png?raw=true)
 
-因为 `vue`打包后自动会生产`dist`文件夹，如果你不想覆盖`dist`文件夹，可以修改打包输出文件夹，还是`阿兹海build/webpack.test.conf.js`文件:
+因为 `vue`打包后自动会生产`dist`文件夹，如果你不想覆盖`dist`文件夹，可以修改打包输出文件夹，还是`build/webpack.test.conf.js`文件:
 
 ![image-20210519174139396](https://github.com/limchen233/picgo/blob/master/img/image-20210519174139396.png?raw=true)
 
