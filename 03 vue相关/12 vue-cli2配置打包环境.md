@@ -1,4 +1,4 @@
-目前vue-cli2上原配置是只有开发环境dev和线上环境prod的配置，但是我们实际场景上还有很多需要一个测试环境test,下面就是对测试环境的配置，将测试环境和线上环境的打包代码分开就不需要切来切去了。
+目前`vue-cli2`上原配置是只有开发环境`dev`和线上环境`prod`的配置，但是我们实际场景上还有很多需要一个测试环境test,下面就是对测试环境的配置，将测试环境和线上环境的打包代码分开就不需要切来切去了。
 
 1.找到项目根目录下的`build`文件夹里的`build.js`文件，然后复制一份出来将文件名修改为`build-test.js`。内容修改为如下图（修改三个地方）：
 
@@ -46,3 +46,34 @@ module.exports = merge(devEnv, {
 将`test`环境添加进去就可以了。
 
 重新打包运行，页面OK！
+
+
+
+### **---------------------更新---------------------------**
+
+按上面配置好后，打包是没问题了，但是我发现在本地开发环境运行有问题。所以今天要重新改造一下。
+
+#### 1.安装依赖
+
+```javascript
+npm i --save-dev cross-env // 运行跨平台设置和使用环境变量的脚本,能够提供一个设置环境变量的scripts，让你能够以unix方式设置环境变量，然后在windows上也能兼容运行。
+```
+
+#### 2.修改`package.json`文件
+
+```json
+// 修改package.json文件的`scripts`属性
+"scripts": {
+		"dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+		"start": "npm run dev",
+    "lint": "eslint --ext .js,.vue src",
+    "build:dev": "cross-env NODE_ENV=development ENV_CONFIG=dev node build/build.js",
+    "build:test": "cross-env NODE_ENV=testing ENV_CONFIG=test node build/build.js",
+    "build:prod": "cross-env NODE_ENV=production ENV_CONFIG=prod node build/build.js"
+	},
+```
+
+如下图：
+
+![](https://github.com/limchen233/picgo/blob/master/img/image-20210520150634905.png)
+
