@@ -93,7 +93,7 @@ npm i --save-dev cross-env // 运行跨平台设置和使用环境变量的脚�
 
 #### 3.修改项目`config`文件夹下的配置文件
 
-- 添加`test.env.js`文件
+- **添加`test.env.js`文件**
 
 	```javascript
 	'use strict'
@@ -107,7 +107,7 @@ npm i --save-dev cross-env // 运行跨平台设置和使用环境变量的脚�
 	})
 	```
 
-- 修改`dev.env.js`文件
+- **修改`dev.env.js`文件**
 
 	```javascript
 	'use strict'
@@ -124,7 +124,7 @@ npm i --save-dev cross-env // 运行跨平台设置和使用环境变量的脚�
 	})
 	```
 
-- 修改`prod.env.js`文件
+- **修改`prod.env.js`文件**
 
 	```javascript
 	'use strict'
@@ -137,7 +137,7 @@ npm i --save-dev cross-env // 运行跨平台设置和使用环境变量的脚�
 
 	> 注意各属性的value值，单引号内有双引号。
 
-- 修改`index.js`文件
+- **修改`index.js`文件**
 
 	`build`属性下添加以下配置：
 
@@ -156,3 +156,116 @@ npm i --save-dev cross-env // 运行跨平台设置和使用环境变量的脚�
 修改完后的`config`文件夹目录：
 
 ![image-20210520160013571](https://github.com/limchen233/picgo/blob/master/img/image-20210520160013571.png?raw=true)
+
+
+
+#### 4.修改项目`build`文件夹下的配置文件
+
+##### 添加各打包环境设置：
+
+- **修改`build.js`文件**
+
+	```javascript
+	// process.env.NODE_ENV = 'production'  // 将此行代码注释
+	
+	// const spinner = ora('building for production...')
+	const spinner = ora('building for ' + process.env.NODE_ENV + ' of ' + process.env.ENV_CONFIG + ' production...')
+	```
+
+	如图所示
+
+	![image-20210520163059525](https://github.com/limchen233/picgo/blob/master/img/image-20210520163059525.png?raw=true)
+
+- 修改`utils.js`文件的`assetsPath`
+
+	原代码：
+
+	```javascript
+	// 原代码
+	exports.assetsPath = function (_path) {
+	  const assetsSubDirectory = process.env.NODE_ENV === 'production'
+	    ? config.build.assetsSubDirectory
+	    : config.dev.assetsSubDirectory
+	
+	  return path.posix.join(assetsSubDirectory, _path)
+	}
+	
+	// 修改后
+	exports.assetsPath = function(_path) {
+		const assetsSubDirectory =
+			process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'testing'
+				? config.build.assetsSubDirectory
+				: config.dev.assetsSubDirectory
+	
+		return path.posix.join(assetsSubDirectory, _path)
+	}
+	```
+
+	
+
+- 修改`webpack.base.conf.js`文件内的`publicPath`
+
+	
+
+	```javascript
+	// 原代码
+	output: {
+	  path: config.build.assetsRoot,
+	  filename: '[name].js',
+	  publicPath: process.env.NODE_ENV === 'production'
+	    ? config.build.assetsPublicPath
+	    : config.dev.assetsPublicPath
+	},
+	    
+	// 修改后
+	output: {
+		path: config.build.assetsRoot,
+		filename: '[name].js',
+		publicPath:
+			process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'testing'
+				? config.build.assetsPublicPath
+				: config.dev.assetsPublicPath
+	},
+	```
+
+	
+
+- 修改`webpack.prod.conf.js`文件
+
+	```javascript
+	// 原代码
+	const env = require('../config/prod.env')
+	
+	
+	// 修改后
+	const env = config.build[process.env.ENV_CONFIG+'Env']
+	```
+
+	将会根据各打包环境设置的参数选择读取 `config/index.js` 文件下 `build` 参数中设置的环境配置参数，从而读取到 `config` 目录下配置的各打包环境的`js`文件
+
+	
+
+- 修改`vue-loader.conf.js`文件
+
+	```javascript
+	// 原代码
+	const isProduction = process.env.NODE_ENV === 'production'
+	const sourceMapEnabled = isProduction
+	  ? config.build.productionSourceMap
+	  : config.dev.cssSourceMap
+	  
+	// 修改后
+	const isProduction = process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'testing'
+	const sourceMapEnabled = isProduction
+	  ? config.build.productionSourceMap
+	  : config.dev.cssSourceMap
+	```
+
+	
+
+#### 5.引入配置的接口请求地址
+
+我的项目中所有请求统一在`api`文件中管理，在`js`文件中获取到**各环境配置**的请求地址将其添加到请求路径中。
+
+![image-20210520164942620](https://github.com/limchen233/picgo/blob/master/img/image-20210520164942620.png?raw=true)
+
