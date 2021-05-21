@@ -29,8 +29,8 @@ npm i @vue/cli -g 新版本
 
 ### 3.启动项目
 
-```
-npm run dev
+```javascript
+npm run dev / npm run serve
 ```
 
 ### 4.生产环境打包
