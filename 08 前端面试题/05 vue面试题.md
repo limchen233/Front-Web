@@ -82,11 +82,14 @@
 
 #### 6.`vue`中hash模式和history模式的区别
 
-- 相同点：都不会请求服务器，不会重新加载页面。
+相同点：都不会请求服务器，不会重新加载页面。
+
+区别：
+
 - hash模式下，请求地址带#，history不带。hash模式背后的原理是`onhashchange`事件，由于hash发生变化的`url`都会被浏览器记录下来，所以浏览器的前进后退可以使用。
 - hash 模式下，使用 URL 的 hash 来模拟一个完整的 URL，仅 hash 符号之前的内容会被包含在请求中，如 `http://www.abc.com`，因此对于后端来说，即使没有做到对路由的全覆盖，也不会返回 404 错误。
 - history 模式下，这种模式充分利用 `history.pushState API` 来完成 URL 跳转而无须重新加载页面。前端的 URL 必须和实际向后端发起请求的 URL 一致，如 `http://www.abc.com/book/id`。如果后端缺少对/book/id 的路由处理，将返回 404 错误。
-- 兼容性。hash 可以支持低版本浏览器和 IE。
+- hash兼容性好，hash 可以支持低版本IE；`ie9`及以下不支持`html5 history`新特性。
 
 #### 7.`v-if`和`v-for`能同时使用吗？为什么？
 
@@ -103,7 +106,7 @@
 
 #### 9.`v-for`中的key有什么用？
 
-- 可以提高性能。`key` 是给每个 `vnode` 指定的唯一 `id`，在同级的 `vnode` diff 过程中，可以根据 `key` 快速的对比，来判断是否为相同节点，并且利用 `key` 的唯一性可以生成 `map` 来更快的获取相应的节点。
+- 可以提高性能。`key` 是给每个 `vnode` 指定的唯一 `id`，在同级的 `vnode diff` 过程中，可以根据 `key` 快速的对比，来判断是否为相同节点，并且利用 `key` 的唯一性可以生成 `map` 来更快的获取相应的节点。
 
   另外指定 `key` 后，就不再采用“就地复用”策略了，可以保证渲染的准确性。
 
@@ -184,13 +187,13 @@
 
   > state:存放一些共享属性。
   >
-  > mutation：一些能改变属性的方法，必须显示的提交mutation才能更改属性状态，过程		  是同步的。
+  > mutation：一些能改变属性的方法，必须显示的提交mutation才能更改属性状态，过程是同步的。
   >
   > action：`action`提交的是mutation，而不是直接更改状态。action可以包含异步操作。
   >
   > 可以通过`context.commit()`直接提交mutation，也可以通过`store.dispatch()`来触发action以提交mutation。
   >
-  > getter：相当于`store`的计算属性，getter的返回值会根据它的依赖被缓存起来，且只有    		当它的依赖发生了变化才会被重新计算。
+  > getter：相当于`store`的计算属性，getter的返回值会根据它的依赖被缓存起来，且只有当它的依赖发生了变化才会被重新计算。
   >
   > module：允许将store切割成模块（module），每个module拥有自己的state、mutation、action、getter。适用于复杂的应用。
 
@@ -279,9 +282,6 @@ b. 使用`ref`语法
 
   Virtual DOM 本质上就是在 `JS `和 DOM 之间做了一个缓存。可以类比 CPU 和硬盘，既然硬盘这么慢，我们就在它们之间加个缓存：既然 DOM 这么慢，我们就在它们 `JS `和 DOM 之间加个缓存。CPU（`JS`）只操作内存（Virtual DOM），最后的时候再把变更写入硬盘（DOM）
 
-- 提升渲染性能
-
-  Virtual DOM的优势不在于单次的操作，而是在大量、频繁的数据更新下，能够对视图进行合理、高效的更新。
 
 ## `vue`项目优化
 
