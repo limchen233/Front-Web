@@ -31,10 +31,7 @@ module.exports = {
 1.安装插件
 npm i postcss-loader autoprefixer -D
 
-2.在webpack配置文件中引入插件
-const 
-
-3.配置插件
+2.配置插件
 module.exports = {
 	// 打包输出文件
   output:{
