@@ -75,3 +75,18 @@ module.exports = {
 
 ```
 
+##### 去除生产环境中的`console`语句和debugger
+
+我们开发时会用`console.log`来检测代码的正确性，项目上线时是不需要的，手动清除太麻烦，可以使用插件配置清除：
+
+```javascript
+new UglifyJsPlugin({
+	uglifyOptions: {
+		compress: {
+		warnings: false,
+		drop_debugger: true, // 去除debugger
+		drop_console: true // 去除console语句
+	}
+},
+```
+
