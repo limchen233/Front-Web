@@ -1,7 +1,7 @@
 `echarts`在渲染时，如果后台返回的数据为空，页面会一片空白，这样对用户很不友好。我们可以稍微处理一下。
 在`option`里配置`title`属性：
 
-```
+```javascript
 var option = {
     title: { // 无数据时占位用
         show: companies.length === 0, // 判断有没有数据，没有则show为true
@@ -24,7 +24,7 @@ var option = {
 
 还可以使用`showLoading()`来展示：
 
-```
+```javascript
 if(companies.length === 0) {
     myChart.showLoading({
        	text: '暂无数据',
