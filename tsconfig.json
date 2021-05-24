@@ -1,7 +1,0 @@
-{
-	"compilerOptions": {
-		"noEmitOnError": true,
-		"strict": true
-	},
-	"include": ["demo"]
-}
