@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./elementUI-2.14.0/css/index.css" />
+		<style>
+			.el-table__row .is-left {
+				padding-left: 20px;
+			}
+			.el-table__expand-icon {
+				width: 8px !important;
+				margin-right: 8px !important;
+			}
+			.is-leaf {
+				text-align: center !important;
+			}
+			.title {
+				text-align: center;
+			}
+			.checkboxSty {
+				display: block;
+				text-align: left;
+				/* padding-left: 20px; */
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div>
+				<h4 class="title">{{res.title}}</h4>
+				<el-table
+					ref="refTable"
+					style="width: 94%; margin: 0 auto"
+					:row-key="getRowKeys"
+					:expand-row-keys="expands"
+					:tree-props="{children: 'children', hasChildren: 'hasChildren'}"
+					border
+					stripe
+					:data="res.tableData"
+					@expand-change="expandChange"
+				>
+					<el-table-column type="index" width="60" :index="increamentIndex" label="序号" align="center" v-if="res.tableData.length"></el-table-column>
+					<!-- <el-table-column align="center" v-for="item in cols" :key="item.prop" :prop="item.prop" :label="item.label"></el-table-column> -->
+					<el-table-column label="项目名称" align="left">
+						<template slot-scope="scope">
+							<div style="display: inline-block">{{scope.row.name}}</div>
+						</template>
+					</el-table-column>
+					<el-table-column label="选项" prop="option" align="center">
+						<template slot-scope="scope">
+							<div style="display: inline-block" v-if="scope.row.type === 'radio'">
+								<el-radio-group v-model="scope.row.value" @change="handleChange(scope.row)">
+									<el-radio :label="1">是</el-radio>
+									<el-radio :label="0">否</el-radio>
+								</el-radio-group>
+							</div>
+							<div v-if="scope.row.type === 'checkbox'">
+								<el-checkbox-group size="small" v-model="scope.row.value">
+									<el-checkbox class="checkboxSty" v-for="item in scope.row.options" :key="item.value" :label="item.label"></el-checkbox>
+								</el-checkbox-group>
+							</div>
+							<div style="display: inline-block" v-if="scope.row.type === 'input'">
+								<el-input v-model="scope.row.value" size="small" clearable></el-input>
+							</div>
+						</template>
+					</el-table-column>
+				</el-table>
+			</div>
+		</div>
+		<script src="./vue/vue-2.6.12.js"></script>
+		<script src="./elementUI-2.14.0/index.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#main',
+				data() {
+					return {
+						increamentIndex: 1,
+						radio: '',
+						getRowKeys(row) {
+							return row.id
+						},
+						expands: [],
+						res: {
+							id: '',
+							title: '支部纪检委员每月上报情况模板',
+							tableData: [
+								{
+									id: '1',
+									name: '本季度是否召开支部党员大会（根据党员大会要求的内容修改）',
+									type: 'radio',
+									value: '',
+									children: [
+										{
+											id: '11',
+											name: '党员大会会议内容',
+											type: 'checkbox',
+											value: [],
+											options: [
+												{ value: '1', label: '传达、学习党的重要会议精神、路线方针政策或上级党组织的决议、指示' },
+												{ value: '2', label: '讨论、制定本单位贯彻执行的计划和措施' },
+												{ value: '3', label: '讨论、审批新党员和预备党员转正' },
+												{ value: '4', label: '讨论决定对党员的表彰和处分等' },
+												{ value: '5', label: '选举产生新的党支部委员会或出席上级党的代表大会的代表，增补或撤销党支部委员' }
+											]
+										}
+									]
+								},
+								{
+									id: '2',
+									name: '本月是否召开支部委员会',
+									type: 'radio',
+									value: '',
+									children: [
+										{ id: '21', name: '纪检委员是否参加支部委员会', type: 'radio', value: '' },
+										{
+											id: '22',
+											name: '支部委员会会议内容',
+											type: 'checkbox',
+											value: [],
+											options: [
+												{ value: '1', label: '宣传、贯彻落实党中央、上级党组织和本支部决议，讨论制定措施方案' },
+												{
+													value: '2',
+													label: '研究落实全面从严治党责任，承接上级单位廉洁风险防控要求，制定本单位或本条线廉洁风险防控措施，推动落实和问题整改'
+												},
+												{
+													value: '3',
+													label: '研究支部年度工作计划、总结，重要请示、报告，党支部建设有关事项'
+												},
+												{
+													value: '4',
+													label: '党员教育、监督、服务、管理事项，党建经费使用等党务工作'
+												},
+												{
+													value: '5',
+													label: '支部班子建设和队伍建设'
+												}
+											]
+										},
+										{
+											id: '23',
+											name: '支委会是否应出席半数以上人员参加',
+											type: 'radio',
+											value: '',
+											children: []
+										},
+										{
+											id: '24',
+											name: '各支部委员是否在会议上充分发表意见',
+											type: 'radio',
+											value: '',
+											children: []
+										}
+									]
+								},
+								{
+									id: '3',
+									name: '本支部是否设有党小组',
+									type: 'radio',
+									value: '',
+									children: [{ id: '31', name: '本月是否召开党小组会议', type: 'radio', value: '', children: [] }]
+								},
+								{
+									id: '4',
+									name: '本季度是否组织党课学习',
+									type: 'radio',
+									value: '',
+									children: [
+										{
+											id: '41',
+											name: '是否结合实际开展研讨',
+											type: 'radio',
+											value: '',
+											children: []
+										}
+									]
+								}
+							]
+						}
+						// cols: [
+						// 	{ prop: 'name', label: '项目名称' },
+						// 	{ prop: 'option', label: '选项' },
+						// 	{ prop: 'remark', label: '备注' }
+						// ]
+					}
+				},
+				mounted() {},
+				computed: {},
+				watch: {
+					name: function (newVal, oldVal) {}
+				},
+				methods: {
+					handleChange(row) {
+						if (row.value) {
+							this.expands.push(row.id)
+						} else {
+							this.expands.pop()
+							this.$nextTick(() => {
+								this.$refs.refTable.toggleRowExpansion(row, false)
+							})
+						}
+					},
+
+					/* 数据展开/关闭时触发 */
+					expandChange(row) {
+						// 取消点击图标时的展开功能
+						this.$nextTick(() => {
+							this.$refs.refTable.toggleRowExpansion(row, false)
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
