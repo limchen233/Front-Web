@@ -114,3 +114,24 @@ table.render({
 ![image-20210823151225554](https://github.com/limchen233/picgo/blob/master/img/image-20210823151225554.png?raw=true)
 
 滚动条隐藏后不影响页面跟随鼠标滚动。
+
+##### 七、给表格添加动态高度
+
+我们知道同一固定高度在不同显示器下显示效果是不一样的，为了统一效果就需要动态的高度。
+
+这个也是在`done`函数里完成。
+
+```javascript
+table.render({
+	elem:'#layTable',
+	// height:680,
+	data:tableData,
+	done:function () {
+		// 请求成功后，动态赋值表格高度
+		$(".layui-table-body").css({
+			height: "calc(100vh - 185px)",
+		});
+	}
+})
+```
+
