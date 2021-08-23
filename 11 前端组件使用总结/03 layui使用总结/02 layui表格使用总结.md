@@ -81,7 +81,7 @@ table.render({
 
 ##### 五、关闭分页，显示所有数据
 
-有时我们并不需要分页功能，而需要显示出所有数据。使用`limit`属性就可以了。
+有时我们并不需要分页功能，而需要显示出所有数据。使用`limit`属性
 
 ```javascript
 table.render({
@@ -93,3 +93,24 @@ table.render({
 });
 ```
 
+##### 六、表头和表内容主体对不齐
+
+在项目有时会出现这种情况，表头和内容主体对不齐，差的正是滚动条的距离。网上有人说需要改源码，然而我按网上说得改了并没有用。我是利用`CSS`隐藏了滚动条，解决了对不齐的问题。
+
+修改前：
+
+![image-20210823150958190](https://github.com/limchen233/picgo/blob/master/img/image-20210823150958190.png?raw=true)
+
+
+
+修改后：
+
+```css
+.layui-table-body{
+	margin-right: -1.15%; /*最好使用百分比，能适应不同分辨率的屏幕*/
+}
+```
+
+![image-20210823151225554](https://github.com/limchen233/picgo/blob/master/img/image-20210823151225554.png?raw=true)
+
+滚动条隐藏后不影响页面跟随鼠标滚动。
