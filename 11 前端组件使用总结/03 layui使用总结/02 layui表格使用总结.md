@@ -1,6 +1,6 @@
 近期项目使用的`jQuery+JSP`，前端组件使用了`layui`。涉及到了排序、合计、多级表头等问题。
 
-`layui`表格有三种渲染方式，我使用的是**方法渲染**。
+`layui`表格有三种渲染方式，此文使用的是**方法渲染**。以下功能均是基于方法渲染。
 
 ##### 一、排序
 
@@ -49,7 +49,7 @@ table.render({
 });
 ```
 
-三、表头字数太多换行
+##### 三、表头字数太多换行
 
 首先给需要换行的列添加`width`属性。然后添加以下`CSS`样式：
 
@@ -68,4 +68,28 @@ table.render({
 效果：
 
 ![image-20210823143235938](https://github.com/limchen233/picgo/blob/master/img/image-20210823143235938.png?raw=true)
+
+##### 四、多级表头
+
+只有一级表头的情况下，所有列均在同一个数组。多级表头有多个数组。每个数组代表一级。再通过`rowspan/colspan`区分，例如：
+
+![image-20210823144535517](https://github.com/limchen233/picgo/blob/master/img/image-20210823144535517.png?raw=true)
+
+![image-20210823144823931](https://github.com/limchen233/picgo/blob/master/img/image-20210823144823931.png?raw=true)
+
+
+
+##### 五、关闭分页，显示所有数据
+
+有时我们并不需要分页功能，而需要显示出所有数据。使用`limit`属性就可以了。
+
+```javascript
+table.render({
+  elem: '#layTable',
+  height: 'auto',
+  data: tableData,
+  page: false, // 关闭分页
+  limit: Number.MAX_VALUE  // 显示所有数据       
+});
+```
 
