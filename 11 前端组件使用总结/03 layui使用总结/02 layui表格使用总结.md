@@ -147,15 +147,15 @@ table.render({
 
 ```javascript
 table.render({
-	elem:'#layTable',
-	// height:680,
-	data:tableData,
-	done:function () {
+  elem:'#layTable',
+  // height:680,
+  data:tableData,
+  done:function () {
     // 请求成功后，动态赋值表格高度
     $(".layui-table-body").css({
-			height: "calc(100vh - 185px)",
-		});
-	}
+      height: "calc(100vh - 185px)"
+    });
+  }
 })
 ```
 
