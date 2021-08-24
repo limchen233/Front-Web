@@ -130,9 +130,9 @@ table.render({
     // 表头和内容错开的宽度正好是一个滚动条的宽度，将滚动条隐藏即可（将主体内容向右移动一个滚动条 
 的宽度）
     if(tableWidth > tableContentWidth){
-	  	/*解决表头和内容错乱问题*/
-	  	$('.layui-table-body').css('margin-right','-1.15%')
-		}
+      /*解决表头和内容错乱问题*/
+      $('.layui-table-body').css('margin-right','-1.15%')
+    }
   }
 })
 ```
@@ -151,8 +151,8 @@ table.render({
 	// height:680,
 	data:tableData,
 	done:function () {
-		// 请求成功后，动态赋值表格高度
-		$(".layui-table-body").css({
+    // 请求成功后，动态赋值表格高度
+    $(".layui-table-body").css({
 			height: "calc(100vh - 185px)",
 		});
 	}
