@@ -115,6 +115,30 @@ table.render({
 
 滚动条隐藏后不影响页面跟随鼠标滚动。
 
+----------------8.24更新--------------------
+
+上面的解决方法只适合在表格有滚动条的时候，没滚动条时则不需要此`css`,所以我们要判断下。
+
+```javascript
+table.render({
+  elem:'#layTable',
+  done:function () {						
+    var tableWidth = $(".layui-table-body").width()
+    var tableContentWidth = $(".layui-table-body .layui-table").width()
+ 
+    // 查看html结构可知，如果tableWidth > tableContentWidth,说明存在滚动条
+    // 表头和内容错开的宽度正好是一个滚动条的宽度，将滚动条隐藏即可（将主体内容向右移动一个滚动条 
+的宽度）
+    if(tableWidth > tableContentWidth){
+	  	/*解决表头和内容错乱问题*/
+	  	$('.layui-table-body').css('margin-right','-1.15%')
+		}
+  }
+})
+```
+
+
+
 ##### 七、给表格添加动态高度
 
 我们知道同一固定高度在不同显示器下显示效果是不一样的，为了统一效果就需要动态的高度。
