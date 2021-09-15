@@ -10,7 +10,7 @@
 
 2.归并起点的起始值（可选）
 
-语法：
+#### 语法：
 
 ```
 arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])
@@ -38,7 +38,7 @@ arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue]
 
 - **`initialValue`(可选)**
 
-描述：
+#### 描述：
 
 `reduce`为数组中的每一个元素依次执行`callback`函数，不包括数组中被删除或从未被赋值的。
 
@@ -51,6 +51,53 @@ console.log(sum) // 15
 ```
 
 因为没有可选的第二个参数，所以第一次执行归并函数时，`prev`是1,`cur`是2。第二次执行时，`prev`是3（1+2），`cur`是3（数组第三项）。如此递进，直到把所有项都遍历一次，最后返回归并结果。
+
+> **注意：**
+>
+> 1、如果没有提供`initialValue`，reduce 会从索引1的地方开始执行 callback 方法，跳过第一个索引。如果提供`initialValue`，从索引0开始。
+>
+> 2、如果数组为空且没有提供`initialValue`，会抛出[`TypeError`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypeError) 。如果数组仅有一个元素（无论位置如何）并且没有提供`initialValue`， 或者有提供`initialValue`但是数组为空，那么此唯一值将被返回并且`callback`不会被执行。
+
+
+
+#### `reduce`如何运行
+
+```javascript
+[0, 1, 2, 3, 4].reduce(function(accumulator, currentValue, currentIndex, array){
+  return accumulator + currentValue;
+});
+```
+
+callback 被调用四次，每次调用的参数和返回值如下表：
+
+| callback    | **accumulator** | **`currentValue`** | **`currentIndex`** |  **array**  | **return value** |
+| :---------- | :-------------: | :----------------: | :----------------: | :---------: | :--------------: |
+| first call  |        0        |         1          |         1          | [0,1,2,3,4] |        1         |
+| second call |        1        |         2          |         2          | [0,1,2,3,4] |        3         |
+| third call  |        3        |         3          |         3          | [0,1,2,3,4] |        6         |
+| fourth call |        6        |         4          |         4          | [0,1,2,3,4] |        10        |
+
+由`reduce`返回的值将是最后一次回调返回值（10）。
+
+如果你提供一个初始值作为`reduce()`方法的第二个参数，以下是运行过程及结果：
+
+```javascript
+[0, 1, 2, 3, 4].reduce((accumulator, currentValue, currentIndex, array) => {
+    return accumulator + currentValue
+}, 10)
+```
+
+| callback    | **accumulator** | **`currentValue`** | **`currentIndex`** |  **array**  | **return value** |
+| ----------- | :-------------: | :----------------: | :----------------: | :---------: | :--------------: |
+| first call  |       10        |         0          |         0          | [0,1,2,3,4] |        10        |
+| second call |       10        |         1          |         1          | [0,1,2,3,4] |        11        |
+| third call  |       11        |         2          |         2          | [0,1,2,3,4] |        13        |
+| fourth call |       13        |         3          |         3          | [0,1,2,3,4] |        16        |
+| fifth call  |       16        |         4          |         4          | [0,1,2,3,4] |        20        |
+
+这种情况下`reduce()`返回的值是`20`。
+
+可以使用[箭头函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)来代替完整的函数
 
 `reduceRight()`方法与之类似，只是方向相反。
 
