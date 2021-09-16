@@ -53,6 +53,9 @@ IE中实现两端对齐，要同时使用`text-align:justify;text-align-last:jus
 或者给要两端对齐的元素添加伪类：
 
 ```css
+span{
+  text-align:'justify'
+}
 span:after {
   content:'';
   width: 100%;
