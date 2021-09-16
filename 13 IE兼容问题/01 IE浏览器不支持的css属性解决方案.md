@@ -35,11 +35,30 @@ function getTransform() {
 
 在IE下可改使用`display: inline`代替
 
-**4.transform:rotate()**
+**4.transform:rotate()、tranform:translate()**
 
 IE9中要想实现旋转的效果前面要加`-ms`前缀
 
-```
+```css
 -ms-transform: rotate(180deg);
+
+/* 使用绝对定位水平垂直居中 */ 
+-ms-transform: translate(-50%,-50%)
+```
+
+**5.text-align-last**
+
+IE中实现两端对齐，要同时使用`text-align:justify;text-align-last:justify;`
+
+或者给要两端对齐的元素添加伪类：
+
+```css
+span:after {
+  content:'';
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  height: 0;
+}
 ```
 

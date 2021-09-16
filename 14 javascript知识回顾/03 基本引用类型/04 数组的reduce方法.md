@@ -56,7 +56,7 @@ console.log(sum) // 15
 >
 > 1、如果没有提供`initialValue`，reduce 会从索引1的地方开始执行 callback 方法，跳过第一个索引。如果提供`initialValue`，从索引0开始。
 >
-> 2、如果数组为空且没有提供`initialValue`，会抛出[`TypeError`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypeError) 。如果数组仅有一个元素（无论位置如何）并且没有提供`initialValue`， 或者有提供`initialValue`但是数组为空，那么此唯一值将被返回并且`callback`不会被执行。
+> 2、如果数组为空且没有提供`initialValue`，会抛出[`TypeError`] 。如果数组仅有一个元素（无论位置如何）并且没有提供`initialValue`， 或者有提供`initialValue`但是数组为空，那么此唯一值将被返回并且`callback`不会被执行。
 
 
 
@@ -97,7 +97,11 @@ callback 被调用四次，每次调用的参数和返回值如下表：
 
 这种情况下`reduce()`返回的值是`20`。
 
-可以使用[箭头函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)来代替完整的函数
+可以使用`箭头函数`来代替完整的函数。
+
+```javascript
+[0, 1, 2, 3, 4].reduce((prev, curr) => prev + curr );
+```
 
 `reduceRight()`方法与之类似，只是方向相反。
 
@@ -110,3 +114,4 @@ console.log(sum) // 15
 ```
 
 在这里，第一次调用归并函数时`prev`是5，而`cur`是4。当然，最终结果相同，因为归并操作都是简单的加法。
+
