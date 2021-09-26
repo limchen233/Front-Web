@@ -49,7 +49,7 @@ console.log(s.delete('foo')) // true
 console.log(s.delete('foo')) // false
 ```
 
-Set实例不是一个真正的数组，而是伪数组，可以使用[`Array.from()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from)变为真数组。
+Set实例不是一个真正的数组，而是类数组，可以使用[`Array.from()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from)变为真数组。
 
 #### 2、顺序与迭代
 
