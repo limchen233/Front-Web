@@ -55,3 +55,18 @@ Set实例不是一个真正的数组，而是伪数组，可以使用[`Array.fro
 
 Set会维护值插入时的顺序，因此支持按顺序迭代。
 
+集合实例可以提供一个迭代器（Iterator），能以插入顺序生成集合内容。可以通过values()方法及其别名方法keys()（或者Symbol.iterator属性，它引用values()）取得这个迭代器：
+
+```javascript
+const s = new Set(['val1','val2','val3'])
+alert(s.values === s[Symbol.iterator]) // true
+alert(s.keys === s[Symbol.iterator]) // true
+
+for(let value of s.values()){
+  console.log(value)
+}
+// val1
+// val2
+// val3
+```
+
