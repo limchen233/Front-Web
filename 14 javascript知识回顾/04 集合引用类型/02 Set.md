@@ -51,6 +51,19 @@ console.log(s.delete('foo')) // false
 
 Set实例不是一个真正的数组，而是类数组，可以使用[`Array.from()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from)变为真数组。
 
+> 因Set实例不能添加重复的值，所以可用来对数组去重。
+>
+> ```js
+> let arr = [2, 3, 4, 2, 5]
+> 
+> let set = new Set(arr)
+> // 转为数组
+> set = Array.from(set)
+> console.log(set) // [2,3,4,5]
+> ```
+>
+> 
+
 #### 2、顺序与迭代
 
 Set会维护值插入时的顺序，因此支持按顺序迭代。
