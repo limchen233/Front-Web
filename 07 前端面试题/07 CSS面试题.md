@@ -14,8 +14,6 @@
 
 2.水平垂直居中
 
-flex position margin
-
 ```html
 <div class="parent" style="height:200px;width:200px;">
   <div class="child" style="height:100px;width:100px;"> Hello</div>
@@ -32,7 +30,7 @@ flex position margin
   align-items:center;
 }
 
-// CSS3的position定位--未知高度和宽度
+// position定位+transform--未知高度和宽度
 .parent{
   position:relative;
   .child{
