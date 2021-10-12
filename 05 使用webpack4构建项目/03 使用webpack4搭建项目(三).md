@@ -8,7 +8,7 @@
 
 	npm i html-webpack-plugin -D
 
-插件在 webpack.consig.js 的配置分三步走：
+插件在 webpack.config.js 的配置分三步走：
 
 > 1、引入插件
 >
