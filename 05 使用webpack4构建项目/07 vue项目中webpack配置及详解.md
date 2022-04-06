@@ -102,7 +102,7 @@ module.exports = {
 		config.when(process.env.NODE_ENV !== 'development', config => {
 			config
 				.plugin('ScriptExtHtmlWebpackPlugin')
-				.after('html')
+				.after('html') // 一定要在HtmlWebpackPlugin之后引用
 				.use('script-ext-html-webpack-plugin', [
 					{
 						// `runtime` must same as runtimeChunk name. default is `runtime`
@@ -135,11 +135,20 @@ module.exports = {
 				}
 			})
 			// https:// webpack.js.org/configuration/optimization/#optimizationruntimechunk
-            // 创建一个在所有生成 chunk 之间共享的运行时文件,设置为 true 或 "multiple"，会为每个仅含有 runtime 的入口起点添加一个额外 chunk。
-			config.optimization.runtimeChunk('single') 
+            // 设置为 true 或 "multiple"，会为每个入口添加一个只含有 runtime 的额外 chunk。
+			config.optimization.runtimeChunk('single') // 创建一个在所有生成 chunk 之间共享的运行时文件,
 		})
 	}
 }
 
 ```
+
+> #### 说明：
+>
+> **Module vs Chunk**
+>
+> - chunk: 是指代码中引用的文件（如：js、css、图片等）会根据配置合并为一个或多个包，我们称一个包为 chunk。
+>
+> - module: 是指将代码按照功能拆分，分解成离散功能块。拆分后的代码块就叫做 module。可以简单的理解为一个 export/import 就是一个 module。
+> - **每个 chunk 包可含多个 module。**
 
