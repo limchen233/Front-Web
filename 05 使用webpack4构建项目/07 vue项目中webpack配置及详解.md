@@ -127,7 +127,8 @@ module.exports = {
 					},
 					commons: {
 						name: 'chunk-commons',
-						test: resolve('src/components'), // 缓存组的规则，表示符合条件的的放入当前缓存组，值可以是function、boolean、																string、RegExp，默认为空；
+                        // 缓存组的规则，表示符合条件的的放入当前缓存组，值可以是function、boolean、string、RegExp，默认为空；
+						test: resolve('src/components'),
 						minChunks: 3, // 表示被引用次数，默认为1；
 						priority: 5,
 						reuseExistingChunk: true // 表示可以使用已经存在的块，即如果满足条件的块已经存在就使用已有的，不再创建一个新的块。
