@@ -15,7 +15,7 @@ const timeStamp = new Date().getTime()
 // For example, Mac: sudo npm run
 // You can change the port by the following method:
 // port = 9527 npm run dev OR npm run dev --port = 9527
-const port = process.env.port || process.env.npm_config_port || 9527 // dev port
+const port = process.env.port || process.env.npm_config_port || 9527 // 本地端口
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -39,10 +39,9 @@ module.exports = {
 			errors: true
 		},
 		proxy: {
-			'/o2p/': {
-				// target: 'http://10.22.1.25:30008', // 测试
-				target: 'http://192.168.12.18:8000', // 王跃猛
-				// target: 'http://192.168.11.56:8000', // 陈小超
+			'/o2p/': { // 接口中的后缀
+				target: 'http://192.168.12.18:8000', // 要跨域的接口地址
+				// target: 'http://192.168.11.56:8000',
 				changeOrigin: true
 			}
 		}
@@ -136,7 +135,8 @@ module.exports = {
 				}
 			})
 			// https:// webpack.js.org/configuration/optimization/#optimizationruntimechunk
-			config.optimization.runtimeChunk('single')
+            // 创建一个在所有生成 chunk 之间共享的运行时文件,设置为 true 或 "multiple"，会为每个仅含有 runtime 的入口起点添加一个额外 chunk。
+			config.optimization.runtimeChunk('single') 
 		})
 	}
 }
