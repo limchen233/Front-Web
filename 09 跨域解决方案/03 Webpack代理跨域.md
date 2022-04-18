@@ -13,7 +13,7 @@ module.exports={
       '/api':{ // 匹配所有以'/api'开关的请求路径
         target:'http://192.168.102.188:9091', // 代理目标的基础路径
         ChangeOrigin:true,// 支持跨域
-        pathRewrite:{// 重写路径：去掉路径中开头的'/api'}
+        pathRewrite:{// 重写路径：去掉路径中开头的'/api'，（如果接口中本来就有/api,则不用重写）
           '^/api':''
         }
       }
