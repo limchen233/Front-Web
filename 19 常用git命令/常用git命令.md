@@ -98,7 +98,7 @@ git merge 被合并的分支
 >
 > （1）当只关联一个远程，只有一个分支时，这两个命令没什么区别。
 >
-> （2）当你关联了两个多个仓库、有多个分支时，git push可能会报错，因为它不知道要上传代码到哪里去；而git push origin main:main指定仓库和分支，就不会报错。
+> （2）当你关联了两个多个仓库、有多个分支时，git push可能会报错，因为它不知道要上传代码到哪里去；而`git push origin main:main`指定仓库和分支，就不会报错。
 
 #### 八、修改分支名
 
@@ -111,5 +111,84 @@ git branch -m oldName newName
 （2）git push origin newName // 上传新命名的本地分支到远程仓库（会创建新的远程分支）
 （3）git push -u origin newName // 将本地分支和远程仓库关联起来
 （4）git push origin -d oldName // 删除远程旧的分支
+```
+
+#### 九、删除分支
+
+```js
+// 删除本地分支
+git branch -d 分支名
+ 
+// 删除远程分支
+git push origin -d 远程分支名
+```
+
+> 如果不确定分支名，删除前可以先查看所有分支，`git branch -a`会列出所有分支：
+>
+> ![](https://img-blog.csdnimg.cn/0e5a34bcc94c42508ea703145d489175.png)
+>
+> 以`remotes`开头的就是远程分支，其它为本地分支，*号代表当前所在的分支
+>
+> 比如删除远程分支`master：git push origin -d master`
+
+#### 十、删除某条commit记录
+
+```js
+1、git reflog // 得到最近的提交记录，能获取commitId
+```
+
+![img](https://img-blog.csdnimg.cn/91c6958f31d2497a81fb63ad1a07b9f9.png)
+
+```js
+2、git rebase -i commitID // 比如 git rebase -i 9efb5ce
+```
+
+执行完这个命令后，就可以看到 `9efb5ce` 的 commit 记录。如下图,默认是使用 vim 编辑器打开了commit log list。然后我们就可以针对我们不需要的某些 log 进行删除。把原本的 pick 单词修改为 drop 就表示该ID对应的 commit log 我们需要删除。vim保存退出。
+
+![img](https://img-blog.csdnimg.cn/149dda2624fb4e8094b91549d2a1a53c.png)
+
+```js
+3、合并冲突并提交
+git add .                   # 冲突时使用
+git commit -m "new commit"  # 冲突时使用
+git rebase --continue       # 冲突时使用
+git push origin 远程分支名 -f  // -f 强制推送
+```
+
+然后现在去查看远程分支的此commit就没了。
+
+#### 十一、撤销commit
+
+```js
+// 撤销最近一次的提交
+git reset --soft(或--hard) HEAD^
+```
+
+> HEAD^的意思是上一个版本，也可以写成HEAD~1
+>
+> 如果你进行了2次commit，想都撤回，可以使用HEAD~2
+>
+> --mixed
+>
+> 意思是：不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
+>
+> 这个为默认参数,git reset --mixed HEAD^ 和 git reset HEAD^ 效果是一样的。
+>
+> --soft
+>
+> 不删除工作空间改动代码，撤销commit，不撤销git add . 
+>
+> --hard
+>
+> 删除工作空间改动代码，撤销commit，撤销git add . 
+>
+> 注意完成这个操作后，就恢复到了上一次的commit状态。
+
+#### 十二、修改commit信息
+
+```js
+git commit --amend
+ 
+此时会进入默认vim编辑器，修改注释完毕后保存就好了。
 ```
 
