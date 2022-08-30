@@ -261,6 +261,40 @@ npm i --save-dev cross-env // 运行跨平台设置和使用环境变量的脚�
 	  : config.dev.cssSourceMap
 	```
 
+	完整代码：
+	
+	```js
+	'use strict'
+	
+	// vue-loader的配置，用在webpack.base.conf.js中；
+	const utils = require('./utils')
+	const config = require('../config')
+	//不同环境为isProduction 赋值: 生产环境为true，其它环境为false
+	const isProduction =
+	  process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'testing'
+	
+	//不同环境为sourceMapEnabled 赋值
+	const sourceMapEnabled = isProduction ? config.build.productionSourceMap : config.dev.cssSourceMap
+	
+	//导出vue-loader的配置，这里我们用了utils文件中的cssLoaders()
+	module.exports = {
+	  loaders: utils.cssLoaders({
+	    sourceMap: sourceMapEnabled,
+	    extract: isProduction
+	  }),
+	  cssSourceMap: sourceMapEnabled,
+	  cacheBusting: config.dev.cacheBusting,
+	  //transformToRequire的作用是在模板编译的过程中，编译器可以将某些属性，如src转换为require调用
+	  transformToRequire: {
+	    video: ['src', 'poster'],
+	    source: 'src',
+	    img: 'src',
+	    image: 'xlink:href'
+	  }
+	}
+	
+	```
+	
 	
 
 #### 5.引入配置的接口请求地址
