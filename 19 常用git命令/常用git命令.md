@@ -192,3 +192,92 @@ git commit --amend
 此时会进入默认vim编辑器，修改注释完毕后保存就好了。
 ```
 
+#### 十三、下载git私有仓库
+
+```js
+git clone https://用户名:token@github.com/用户名/仓库名.git
+
+// 例如：
+git clone https://limchen233:hyeyh778@github.com/limchen233/yuwell_prodLine.git
+```
+
+#### 十四、给仓库打tag
+
+`github`上只有在工程首次创建tag时可以使用`github`界面生成tag，之后就要通过命令行啦。
+
+命令：
+
+```js
+// 查看所有tag
+git tag
+
+// 用正则查看相匹配的tag
+git tag -l "v1.0*"
+
+// 添加tag
+git tag -a tag_name -m "tag描述"
+
+// 推送tag到远程
+git push -u origin tag_name
+
+// 删除tag
+git tag -d tag_name
+
+// tag重命名
+git tag new_name old_name
+
+// 删除远程旧tag
+git push origin :refs/tags/old_name
+
+// 推送新tag到远程
+git push -u origin new_name
+
+//tag删除后又出现，需要协同开发的人执行以下命令
+git pull --prune --tags
+
+```
+
+#### 十五、fork项目更新
+
+```js
+线上fork别人项目后，将fork的项目clone到本地，进入本地项目，设置远程源项目地址
+
+git remote -v  // 查看本地仓库关联的所有远程仓库地址
+
+// 添加关联远程仓库地址
+git remote add upstream(可以取其它名称) 源仓库地址
+git remote -v // 查看是否关联成功
+
+// 删除关联远程项目
+git remote remove 仓库名（默认origin）  例：git remote remove upstream
+
+1、拉取更新
+// 拉取源仓库更新
+git fetch upstream
+
+// 将源仓库更新合并到本地代码
+git merge upstream/分支名
+
+// 更新合并自己远程仓库代码
+git pull origin 分支名
+
+// 向自己远程仓库推送合并源仓库后的代码
+git push
+
+2、提交更新
+本地仓库代码改变后，提交到自己远程仓库，然后在自己远程仓库创建`merge request`
+进入远程仓库，左边菜单找到`Merge Requests`
+
+```
+
+![image-20230119152658681](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20230119152658681.png)
+
+选择`New merge request`
+
+![image-20230119152801813](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20230119152801813.png)
+
+下一步：
+
+![image-20230119153118015](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20230119153118015.png)
+
+创建成功后源仓库的管理员会收到一个merge请求，检查后合并就OK了。
