@@ -82,7 +82,8 @@ server {
 }
 ```
 
-4、将打包后的安装包及升级文件放在根目录`home`下
+4、将打包后的安装包及升级文件放在根目录`home`下，如图：
 
+![image-20230516152449791](https://raw.githubusercontent.com/limchen233/picgo/master/img/image-20230516152449791.png)
 
-
+`latest.yml`是比较版本的文件，切记要上传。每次都要上传两个文件，`latest.yml`和`.exe`安装包。同名文件会覆盖。
