@@ -48,3 +48,41 @@ releaseDate: '2023-01-13T06:45:49.032Z'
 ```
 
 我们可以设置一个`status`或其它字段来标识是否有可用更新，将这个字段返回给前台。
+
+#### 自动更新本地配置
+
+1、修改本地配置文件`config/config.default.js`
+
+```js
+/* 应用自动升级 (可选) */
+  config.autoUpdate = {
+    windows: true, // windows平台
+    macOS: false, // macOs 需要签名验证
+    linux: false, // linux平台
+    options: {
+      provider: 'generic', // or github, s3, bintray
+      url: 'http://127.0.0.1:8082/' //正式环境换要换成正式地址
+    },
+    force: false // 强制更新（运行软件时，检查新版本并后台下载安装）
+  }
+```
+
+2、首先本地要安装`nginx`。见网上安装教程。
+
+3、根据自己的需要修改`nginx.conf`配置文件。
+
+```yaml
+server {
+    listen       8082; # 上面的端口要一致
+    server_name  localhost;
+    location / {
+        root   home; # 根路径
+        index  index.html index.htm;
+    }
+}
+```
+
+4、将打包后的安装包及升级文件放在根目录`home`下
+
+
+
